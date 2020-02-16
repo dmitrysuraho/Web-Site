@@ -4,23 +4,80 @@ body
 }
 
 html {
-	overflow-y: hidden;
+
+}
+
+.mainFooter {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .main {
 	display: flex;
+	height: 95%;
+	flex: 19;
+}
+
+.foot {
+	height: 31px;
+	width: 100%;
+	display: flex;
+	background-color: rgba(0, 0, 0, 0.6);
+	flex: 1;
+}
+
+footer {
+	width: 100%;
+	display: flex;
+}
+
+.headerLeft {
+	min-width: 300px;
+	border-right: 1px solid white;
+	display: flex;
+}
+
+.settings {
+	flex: 4;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.menu {
+	flex: 1;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
+}
+
+.headerRight {
+	width: 100%;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
 }
 
 .leftColumn {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 }
 
 .upOrders {
+	display: flex;
 	height: 30px;
-	text-align: center;
 	color: rgba(0, 0, 0, 0.5);
+}
+
+.svgRight {
+	flex: 37%;
+	text-indent: 10px;
+}
+
+.textUpOrder {
+	flex: 63%;
 }
 
 .orders {
@@ -69,7 +126,7 @@ p {
 
 .rightColumn {
 	display: flex;
-	min-height: 10vh;
+	height: 100%;
 	width: 100%;
 	flex-direction: column;
 }
@@ -103,6 +160,21 @@ header {
 .orderInfoBlock p {
 	text-indent: 0;
 	font-size: 13px;
+}
+
+.svg {
+	display: flex;
+}
+
+.svgCar {
+	width: 30px;
+	height: 30px;
+
+}
+
+.svgMan {
+	width: 30px;
+	height: 30px;
 }
 
 .orderPrice {
