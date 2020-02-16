@@ -8,11 +8,13 @@ html {
 }
 
 .mainFooter {
+	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
 .main {
+	min-height: 95%;
 	display: flex;
 }
 
@@ -54,7 +56,6 @@ footer {
 }
 
 .leftColumn {
-	height: 95vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -119,7 +120,6 @@ p {
 }
 
 .rightColumn {
-	height: 95vh;
 	display: flex;
 	width: 100%;
 	flex-direction: column;
