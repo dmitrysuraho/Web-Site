@@ -158,18 +158,27 @@ header {
 }
 
 .svg {
+	margin-left: 12px;
 	display: flex;
+	width: 150px;
+	justify-content: space-around;
+	height: 50px;
+	padding: 5px;
 }
 
 .svgCar {
-	width: 30px;
-	height: 30px;
-
+	width: 40px;
+	height: 40px;
+	border: 1px solid rgb(70, 130, 180);
+	border-radius: 50%;
 }
 
 .svgMan {
 	width: 30px;
-	height: 30px;
+	border: 1px solid rgb(70, 130, 180);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
 }
 
 .orderPrice {
