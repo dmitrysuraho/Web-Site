@@ -4,30 +4,24 @@ body
 }
 
 html {
-
+	overflow-y: hidden;
 }
 
 .mainFooter {
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
 .main {
 	display: flex;
-	height: 95%;
-	flex: 19;
-}
-
-.foot {
-	height: 31px;
-	width: 100%;
-	display: flex;
-	background-color: rgba(0, 0, 0, 0.6);
-	flex: 1;
 }
 
 footer {
+}
+
+.footer {
+	height: 31px;
+	background-color: rgba(0, 0, 0, 0.8);
 	width: 100%;
 	display: flex;
 }
@@ -60,14 +54,14 @@ footer {
 }
 
 .leftColumn {
+	height: 95vh;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 }
 
 .upOrders {
 	display: flex;
-	height: 30px;
+	min-height: 30px;
 	color: rgba(0, 0, 0, 0.5);
 }
 
@@ -125,8 +119,8 @@ p {
 }
 
 .rightColumn {
+	height: 95vh;
 	display: flex;
-	height: 100%;
 	width: 100%;
 	flex-direction: column;
 }
