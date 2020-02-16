@@ -19,11 +19,12 @@ html {
 }
 
 footer {
+
 }
 
 .footer {
 	height: 31px;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgb(40, 40, 40);
 	width: 100%;
 	display: flex;
 }
