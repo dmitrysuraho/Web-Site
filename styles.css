@@ -47,12 +47,17 @@ input {
 	top: 5px;
 }
 
-.svg-right {
+.right {
 	flex: 37%;
 	text-indent: 10px;
 }
 
-.svg-pointer:hover {
+.svg-right {
+	height: 15px;
+	width: 15px;
+}
+
+.svg-right:hover {
 	cursor: pointer;
 }
 
@@ -138,11 +143,25 @@ p {
 }
 
 /*---------HEADER---------*/
-header {
+
+header div {
 	text-align: center;
 	border-bottom: 1px solid rgba(169, 169, 169, 0.3);
 	background-color: rgba(0, 72, 166, 0.07);
 	color: rgba(0, 0, 0, 0.5);
+}
+
+.svg-text-lines {
+	height: 15px;
+	width: 15px;
+	position: absolute;
+	margin-left: 10px;
+	margin-top: 5px;
+	display: none;
+}
+
+.svg-text-lines:hover {
+	cursor: pointer;
 }
 /*------------------------*/
 
@@ -377,14 +396,19 @@ b {
 	overflow: hidden;
 }
 
-.settings {
+.filter {
 	flex: 4;
 	text-align: right;
 	padding-right: 10px;
 	padding-top: 3px;
 }
 
-.svg-settings:hover {
+.svg-filter {
+	height: 16px;
+	width: 16px;
+}
+
+.svg-filter:hover {
 	cursor: pointer;
 }
 
@@ -393,6 +417,11 @@ b {
 	text-align: right;
 	padding-right: 10px;
 	padding-top: 2px;
+}
+
+.svg-menu {
+	height: 15px;
+	width: 15px;
 }
 
 .svg-menu:hover {
@@ -406,7 +435,11 @@ b {
 	padding-top: 2px;
 }
 
-.svg-massage:hover {
+.svg-message {
+	height: 17px;
+	width: 17px;}
+
+.svg-message:hover {
 	cursor: pointer;
 }
 /*-------------------------------------*/
@@ -424,6 +457,10 @@ b {
 		width: 0;
 		min-width: 0; 
 		border: none;
+	}
+
+	.svg-text-lines {
+		display: block;
 	}
 }
 
