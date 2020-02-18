@@ -7,7 +7,7 @@ html {
 	overflow-y: hidden;
 }
 
-.mainFooter {
+.main-footer {
 	min-height: 100vh;
 	max-height: 100vh;
 	display: flex;
@@ -22,56 +22,10 @@ html {
 	display: flex;
 }
 
-.footer {
-	height: 31px;
-	background-color: rgb(40, 40, 40);
-	width: 100%;
-	display: flex;
-}
 
-.footerLeft {
-	min-width: 300px;
-	border-right: 1px solid white;
-	display: flex;
-	transition-property: width, min-width;
-	transition-duration: 0.15s;
-	overflow: hidden;
-}
 
-.settings {
-	flex: 4;
-	text-align: right;
-	padding-right: 10px;
-	padding-top: 3px;
-}
-
-.svgSettings:hover {
-	cursor: pointer;
-}
-
-.menu {
-	flex: 1;
-	text-align: right;
-	padding-right: 10px;
-	padding-top: 2px;
-}
-
-.svgMenu:hover {
-	cursor: pointer;
-}
-
-.footerRight {
-	width: 100%;
-	text-align: right;
-	padding-right: 10px;
-	padding-top: 2px;
-}
-
-.svgMassage:hover {
-	cursor: pointer;
-}
-
-.leftColumn {
+/*--------------LEFT COLUMN--------------*/
+.left-column {
 	display: flex;
 	flex-direction: column;
 	width: 300px;
@@ -81,7 +35,7 @@ html {
 	overflow: hidden;
 }
 
-.upOrders {
+.up-orders {
 	height: 30px;
 	display: flex;
 	min-height: 30px;
@@ -93,16 +47,16 @@ input {
 	top: 5px;
 }
 
-.svgRight {
+.svg-right {
 	flex: 37%;
 	text-indent: 10px;
 }
 
-.svgPointer:hover {
+.svg-pointer:hover {
 	cursor: pointer;
 }
 
-.textUpOrder {
+.text-up-order {
 	flex: 63%;
 }
 
@@ -127,46 +81,72 @@ input {
 	cursor: pointer;
 }
 
-.leftOrderDate {
+.left-num-date {
 	display: flex;
-	justify-content: space-between;
 }
 
-.leftOrderInfo {
+.order-num {
+	font-size: 15px;
+	font-weight: 500;
+	flex: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.order-date {
+	font-size: 17px; 
+	font-weight: 500; 
+	flex: 50%; 
+	text-align: right;
+}
+
+.left-order-info {
 	display: flex;
-	justify-content: space-between;
 	padding-top: 5px;
 }
 
-.leftOrderInfo p {
+.left-order-info p {
 	text-indent: 0;
 	color: rgba(0, 0, 0, 0.6);
 	font-size: 13px;
 }
 
+.order-shipped {
+	flex: 3;
+}	
+
 .status {
+	flex: 1;
 	font-size: 13px;
 	color: green;
+	text-align: right;
 }
 
 p {
 	text-indent: 15px;
 }
+/*---------------------------------*/
 
-.rightColumn {
+
+
+/*----------RIGHT COLUMN-----------*/
+.right-column {
 	display: flex;
 	width: 100%;
 	flex-direction: column;
 }
 
+/*---------HEADER---------*/
 header {
 	text-align: center;
 	border-bottom: 1px solid rgba(169, 169, 169, 0.3);
 	background-color: rgba(0, 72, 166, 0.07);
 	color: rgba(0, 0, 0, 0.5);
 }
+/*------------------------*/
 
-.rightColumWOHeader {
+.right-column-wo-header {
 	height: 100%;
 	margin: 0;
 	padding: 0;
@@ -175,17 +155,38 @@ header {
 	flex-direction: column;
 }
 
-.orderInfo {
+.order-info {
 	background-color: rgba(0, 72, 166, 0.07);
 	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
 	padding-top: 10px;
 }
 
-.orderInfoBlock {
+.order-info-block {
 	margin: 0px 35px 15px 35px;
 }
 
-.orderInfoBlock p {
+.order-price {
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+	font-weight: 500; 
+}
+
+.left-price {
+	flex: 70%;
+}
+
+.price {
+	flex: 30%;
+	text-align: right;
+}
+
+.eur {
+	color: rgba(0, 0, 0, 0.6) !important;
+	font-size: 13px;
+}
+
+.order-info-block p {
 	text-indent: 0;
 	font-size: 13px;
 }
@@ -199,122 +200,265 @@ header {
 	padding: 5px;
 }
 
-.svgCar {
+.svg-car {
 	width: 40px;
 	height: 40px;
 	border: 1px solid rgb(70, 130, 180);
 	border-radius: 50%;
 }
 
-.svgCar:hover {
+.svg-car:hover {
 	cursor: pointer;
 }
 
-.svgMan {
+.svg-man {
 	border: 1px solid rgb(70, 130, 180);
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
 }
 
-.svgMan:hover {
+.svg-man:hover {
 	cursor: pointer;
 }
 
-.orderPrice {
-	display: flex;
-	justify-content: space-between;
-	font-size: 18px;
-	font-weight: 500; 
-}
-
-.orderedShipped {
+.ordered-shipped {
 	color: rgba(0, 0, 0, 0.6);
 }
 
-.addressOrInfo {
+.address-or-info {
 	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
 	margin: 0;
-	padding-top: 10px;
 }
 
-.twoBlocksAdress {
-	margin: 0px 25px 15px 25px;
+.two-blocks-adress-1 {
+	margin: 10px 25px 15px 25px;
 }
 
-.shippingAdress {
+.shipping-adress-1 {
 	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
 	font-size: 17px;
 	padding: 5px 10px 5px 10px;
 }
 
-.info {
+.info-1 {
 	display: flex;
 	margin-top: 5px;
 	text-align: center;
 	font-size: 13px;
  }
 
-.pattern {
+.pattern-1 {
 	text-align: right;
 	flex: 1;
 	color: rgba(0, 0, 0, 0.6);
 }
 
-.patternInfo {
+.pattern-info-1 {
 	text-align: left;
 	padding-left: 10px;
 	flex: 3;
 }
 
+.two-blocks-adress-2 {
+	display: none;
+}
+
+.shipping-adress-2 {
+	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
+	font-size: 17px;
+	width: 100%;
+	padding: 5px 15px 5px 15px;
+}
+
+.info-2 {
+	padding: 5px 15px 5px 15px;
+	font-size: 13px;
+}
+
+.pattern-2 {
+	color: rgba(0, 0, 0, 0.6);
+}
+
 .items {
-	padding-top: 10px;
 	background-color: rgb(248, 248, 255);
 	flex: 100%;
 }
 
-.twoBlocksItems {
+.two-blocks-items-1 {
 	margin: 0px 25px 15px 25px;
 }
 
-.lineItems {
-	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
+.line-items-1 {
 	font-size: 17px;
-	padding: 5px 10px 5px 10px;
+	padding: 15px 10px 5px 10px;
 }
 
-.products {
+.products-1 {
 	font-size: 13px;
 }
 
-.item, .itemHeader {
+.item-header-1 {
+	background-color: rgb(240, 240, 240);
+	border-top: 2px solid rgba(169, 169, 169, 0.3);
+}
+
+.item-1, .item-header-1 {
 	display: flex;
 	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
 	padding: 3px 10px 3px 10px;
 }
 
-.item {
+.item-1 {
 	background-color: rgb(255, 255, 255);
+}
+
+.head-item-description-1 {
+	flex: 1;
+}
+
+.item-description-1 {
+	flex: 1;
+	text-align: right
 }
 
 b {
 	color: rgba(0, 0, 0, 0.7);
 }
 
-@media (max-width: 700px)
-{
-	.leftColumn {
+.two-blocks-items-2 {
+	display: none;
+}
+
+.line-items-2 {
+	font-size: 17px;
+	padding: 5px 15px 5px 15px;
+}
+
+.products-2 {
+	font-size: 13px;
+}
+
+.item-header-2 {
+	background-color: rgb(240, 240, 240);
+	border-top: 2px solid rgba(169, 169, 169, 0.3);
+}
+
+.item-2, .item-header-2 {
+	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
+	padding: 5px 15px 5px 15px;
+}
+
+.item-2 {
+	background-color: rgb(255, 255, 255);
+}
+
+.item-2:last-child {
+	border: none;
+}
+/*----------------------------------------*/
+
+
+
+/*---------------FOOTER---------------*/
+.footer {
+	height: 31px;
+	background-color: rgb(40, 40, 40);
+	width: 100%;
+	display: flex;
+}
+
+.footer-left {
+	min-width: 300px;
+	border-right: 1px solid white;
+	display: flex;
+	transition-property: width, min-width;
+	transition-duration: 0.15s;
+	overflow: hidden;
+}
+
+.settings {
+	flex: 4;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.svg-settings:hover {
+	cursor: pointer;
+}
+
+.menu {
+	flex: 1;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
+}
+
+.svg-menu:hover {
+	cursor: pointer;
+}
+
+.footer-right {
+	width: 100%;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
+}
+
+.svg-massage:hover {
+	cursor: pointer;
+}
+/*-------------------------------------*/
+
+
+
+/*----------------MEDIA-----------------*/
+@media (max-width: 900px) {
+	.left-column {
 		width: 0;
 		min-width: 0; 
 	}
 
-	.footerLeft {
+	.footer-left {
 		width: 0;
 		min-width: 0; 
 		border: none;
 	}
 }
 
+@media (max-width: 600px) {
+	.order-info-block {
+		margin-left: 15px;
+		margin-bottom: 15px;
+	}
+
+	.svg {
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	.two-blocks-adress-1 {
+		display: none;
+	}
+
+	.two-blocks-adress-2 {
+		display: block;
+	}
+
+	.two-blocks-items-1 {
+		display: none;
+	}
+
+	.two-blocks-items-2 {
+		display: block;
+	}
+}
+/*---------------------------------------*/
+
+
+
+/*--------------SCROLBARS----------------*/
 .orders::-webkit-scrollbar {
 		width: 12px;
 }
@@ -327,14 +471,15 @@ b {
 	background: rgba(0, 0, 0, 0.3);
 }
 
-.rightColumWOHeader::-webkit-scrollbar {
+.right-column-wo-header::-webkit-scrollbar {
 		width: 12px;
 }
 
-.rightColumWOHeader::-webkit-scrollbar-track {
+.right-column-wo-header::-webkit-scrollbar-track {
 	background: white;
 }
 
-.rightColumWOHeader::-webkit-scrollbar-thumb {
+.right-column-wo-header::-webkit-scrollbar-thumb {
 	background: rgba(0, 0, 0, 0.3);
 }
+/*----------------------------------------*/
