@@ -44,7 +44,6 @@ html {
 
 input {
 	width: 100%;
-	top: 5px;
 }
 
 .right {
@@ -155,7 +154,7 @@ header div {
 	height: 15px;
 	width: 15px;
 	position: absolute;
-	margin-left: 10px;
+	margin-left: 5px;
 	margin-top: 5px;
 	display: none;
 }
@@ -222,8 +221,16 @@ header div {
 .svg-car {
 	width: 40px;
 	height: 40px;
-	border: 1px solid rgb(70, 130, 180);
+	border: 2px solid rgb(70, 130, 180);
 	border-radius: 50%;
+	padding-left: 5px;
+	padding-top: 3px;
+	background-color: rgb(70, 130, 180);
+}
+
+.svg-car img {
+	width: 27px;
+	height: 27px;
 }
 
 .svg-car:hover {
@@ -231,10 +238,17 @@ header div {
 }
 
 .svg-man {
-	border: 1px solid rgb(70, 130, 180);
+	border: 2px solid rgb(70, 130, 180);
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
+	padding-left: 7px;
+	padding-top: 3px;
+}
+
+.svg-man img {
+	width: 22px;
+	height: 22px;
 }
 
 .svg-man:hover {
