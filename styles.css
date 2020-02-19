@@ -267,7 +267,11 @@ header div {
 	width: 150px;
 	justify-content: space-around;
 	height: 50px;
-	padding: 5px;
+}
+
+.border-svg-car {
+	height: 100%;
+	border-bottom: 2px solid rgb(70, 130, 180);
 }
 
 .svg-car {
