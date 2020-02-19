@@ -55,20 +55,19 @@ form {
 input {
 	border:none;
 	outline: none;
-	flex: 90%;
+	flex: 80%;
 	font-style: italic;
 	padding-left: 3px;
-	border-left: 1px solid;
-	border-top: 1px solid;
-	border-bottom: 1px solid;
+	border-left: 1px solid rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .svg-search {
 	text-align: center;
 	flex: 10%;
-	border-right: 1px solid;
-	border-top: 1px solid;
-	border-bottom: 1px solid;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .svg-search img {
@@ -78,6 +77,24 @@ input {
 }
 
 .svg-search img:hover {
+	cursor: pointer;
+}
+
+.svg-update {
+	text-align: center;
+	flex: 10%;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.svg-update img {
+	height: 14px;
+	width: 14px;
+	margin-bottom: 2px;
+}
+
+.svg-update img:hover {
 	cursor: pointer;
 }
 
