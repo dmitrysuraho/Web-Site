@@ -243,11 +243,11 @@ header div {
 }
 
 .left-price {
-	flex: 70%;
+	flex: 60%;
 }
 
 .price {
-	flex: 30%;
+	flex: 40%;
 	text-align: right;
 }
 
