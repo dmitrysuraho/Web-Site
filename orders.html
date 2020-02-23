@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="styles.css" rel="stylesheet">
 	<link href="bootstrap.css" rel="stylesheet">
+
 </head>
 <body>
 	<div class="main-footer">
@@ -14,11 +15,11 @@
 					<div class="right">
 						<img class="svg-right" src="svg/back.svg">
 					</div>
-					<div class="text-up-order">Orders(10)</div>
+					<div class="text-up-order"><!-- Orders(10) --></div>
 				</div>
-				<div class=".finder">
+				<div class="finder">
 					<form>
-						<input type="text" name="search" placeholder="Поиск"></input>
+						<input id='search-orders' type="text" onkeyup="searchOrders()" name="search" placeholder="Поиск"></input>
 						<div class="svg-search">
 							<img src="svg/search.svg">
 						</div>
@@ -28,136 +29,18 @@
 					</form>
 				</div>
 				<div class="orders">
-					<div class="order">
+					<!-- <div class="order">
 						<div class="left-num-date">
 							<div class="order-num">Order 7918</div>
 							<div class="order-date">18.09.2016</div>
 						</div>
 						<div class="left-order-info">
 							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
+								<p>Tortuga Restaurante</p><p>Shipped: 26 сент. 2016 г.</p>
 							</div>
-							<div class="status">In time</div>
+							<div class="status">goodг</div>
 						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p>
-								<p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">In time</div>
-						</div>
-					</div>
+					</div> -->
 				</div>
 	    	</div>
 	   		<div class="right-column">
@@ -169,8 +52,8 @@
 		    		<div class="order-info">
 		    			<div class="order-info-block">
 		    				<div class="order-price">
-		    					<div class="left-price">Order 7918z</div>
-		    					<div class="price">150 935,13<br><span class="eur">EUR</span></div>
+		    					<div class="left-price"><!-- Order 7918 --></div>
+		    					<div class="price"><!-- 150 935,13 --><br><span class="eur"><!-- EUR --></span></div>
 		    				</div>
 		    				<p class="ordered-shipped">
 		    					Customer: Tortuga Restaurante<br>
@@ -179,12 +62,12 @@
 		    				</p>
 		   				</div>
 		   				<div class="svg">
-		   					<div class="border-svg-car">
-		   						<div class="svg-car">
+		   					<div class="border-svg-car brdr-bottom" onclick="ShippingAdress()">
+		   						<div class="svg-car back-gr-clr">
 									<img src="svg/truck.svg">
 		   						</div>
 		   					</div>
-		   					<div class="border-svg-man">
+		   					<div class="border-svg-man" onclick="CustomerInfo()">
 		   						<div class="svg-man">
 									<img src="svg/user.svg">
 		   						</div>
@@ -192,7 +75,7 @@
 		   				</div>
 		    		</div>
 		    		<div class="address-or-info">
-		    			<div class="two-blocks-adress-1">
+		    			<div class="two-blocks-adress-1 shopping">
 		    				<div class="shipping-adress-1">Shipping Address</div>
 		    				<div class="info-1">
 		    					<div class="pattern-1">
@@ -203,11 +86,30 @@
 		    						<div>Country:</div>
 		    					</div>
 		    					<div class="pattern-info-1">
-		    						<div>ExcellentParcel</div>
-		    			 			<div>Tottenham Count Road</div>
-		    			 			<div>N170AA London</div>
-		    			 			<div>Greater London</div>
-		    			 			<div>United Kingdom</div>
+		    						<div class='name'><!-- ExcellentParcel --></div>
+		    			 			<div class='street'><!-- Tottenham Count Road --></div>
+		    			 			<div class='zip-code'><!-- N170AA London --></div>
+		    			 			<div class='region'><!-- Greater London --></div>
+		    			 			<div class='country'><!-- United Kingdom --></div>
+		    					</div>	 
+		    				</div>
+		    			</div>
+		    			<div class="two-blocks-adress-1 customer display-none">
+		    				<div class="shipping-adress-1">Customer info</div>
+		    				<div class="info-1">
+		    					<div class="pattern-1">
+		    						<div>First Name:</div>
+		    						<div>Last Name:</div>
+		    						<div>Adress:</div>
+		    						<div>Phone:</div>
+		    						<div>Email:</div>
+		    					</div>
+		    					<div class="pattern-info-1">
+		    						<div class='name'><!-- ExcellentParcel --></div>
+		    			 			<div class='street'><!-- Tottenham Count Road --></div>
+		    			 			<div class='zip-code'><!-- N170AA London --></div>
+		    			 			<div class='region'><!-- Greater London --></div>
+		    			 			<div class='country'><!-- United Kingdom --></div>
 		    					</div>	 
 		    				</div>
 		    			</div>
@@ -216,23 +118,23 @@
 		    				<div class="info-2">
 		    					<div class="line-info">
 		    						<div class="pattern-2">Name:</div>
-		    						<div class="pattern-info-2">ExcellentParcel</div>
+		    						<div class="pattern-info-2 name">ExcellentParcel</div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Street:</div>
-		    						<div class="pattern-info-2">Tottenham Count Road</div>
+		    						<div class="pattern-info-2 street">Tottenham Count Road</div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">ZIP Code / City:</div>
-		    						<div class="pattern-info-2">N170AA London</div>
+		    						<div class="pattern-info-2 zip-code">N170AA London</div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Region:</div>
-		    						<div class="pattern-info-2">Greater London</div>
+		    						<div class="pattern-info-2 region">Greater London</div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Country:</div>
-		    						<div class="pattern-info-2">United Kingdom</div>
+		    						<div class="pattern-info-2 country">United Kingdom</div>
 		    					</div>
 		    				</div>
 		    			</div>
@@ -240,6 +142,15 @@
 		    		<div class="items">
 		    			<div class="two-blocks-items-1">
 		    				<div class="line-items-1">Line Items(4)</div>
+		    				<form>
+								<input id='search-items-pc' type="text" onkeyup="searchItemsPC()" name="search" placeholder="Поиск"></input>
+								<div class="svg-search">
+									<img src="svg/search.svg">
+								</div>
+								<div class="svg-update">
+									<img src="svg/update.svg">
+								</div>
+							</form>
 		    				<div class="products-1">
 		    					<div class="item-header-1">
 		    						<div class="head-item-description-1">Product</div>
@@ -248,105 +159,42 @@
 		    						<div class="item-description-1">Total</div>
 		    					</div>
 		    					<div class="item-1">
-		    						<div class="head-item-description-1"><b>Aniseed Syrup</b><br>1412</div>
-		    						<div class="item-description-1"><b>65.89</b> EUR</div>
-		    						<div class="item-description-1">899</div>
-		    						<div class="item-description-1"><b>59 235,11</b> EUR</div>
-		    					</div>
-		    					<div class="item-1">
-		    						<div class="head-item-description-1"><b>Tunnbrod</b><br>5672</div>
-		    						<div class="item-description-1"><b>14.77</b> EUR</div>
-		    						<div class="item-description-1">2367</div>
-		    						<div class="item-description-1"><b>34 960,59</b> EUR</div>
-		    					</div>
-		    					<div class="item-1">
-		    						<div class="head-item-description-1"><b>Northwoods Cranberry</b><br>5046</div>
-		    						<div class="item-description-1"><b>61.69</b> EUR</div>
-		    						<div class="item-description-1">867</div>
-		    						<div class="item-description-1"><b>53 485,23</b> EUR</div>
-		    					</div>
-		    					<div class="item-1">
-		    						<div class="head-item-description-1"><b>Camembert Pierrot</b><br>9505</div>
-		    						<div class="item-description-1"><b>3.07</b> EUR</div>
-		    						<div class="item-description-1">1060</div>
-		    						<div class="item-description-1"><b>3 254,20</b> EUR</div>
+		    						<div class="head-item-description-1"><b class="product">Aniseed Syrup</b><br>1412</div>
+		    						<div class="item-description-1"><b class="unit-price">65.89</b> EUR</div>
+		    						<div class="item-description-1 quantity">899</div>
+		    						<div class="item-description-1"><b class="total">59 235,11</b> EUR</div>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="two-blocks-items-2">
 		    				<div class="line-items-2">Line Items(4)</div>
+		    				<form>
+								<input id='search-items-phone' type="text" onkeyup="searchItemsPhone()" name="search" placeholder="Поиск"></input>
+								<div class="svg-search">
+									<img src="svg/search.svg">
+								</div>
+								<div class="svg-update">
+									<img src="svg/update.svg">
+								</div>
+							</form>
 		    				<div class="products-2">
 		    					<div class="item-header-2">Product</div>
 		    					<div class="item-2">
 		    						<div class="item-description-2">
-		    							<div><b>Aniseed Syrup</b></div>
-		    							<div>1412</div>
+		    							<div><b class="product-1">Aniseed Syrup</b></div>
+		    							<div class="product-2">1412</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Unit Price:</div>
-		    							<div><b>65.89</b> EUR</div>
+		    							<div><b class="unit-price">65.89</b> EUR</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Quantity:</div>
-		    							<div>899</div>
+		    							<div class="quantity">899</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Total:</div>
-		    							<div><b>59 235,11</b> EUR</div>
-		    						</div>
-		    					</div>
-		    					<div class="item-2">
-		    						<div class="item-description-2">
-		    							<div><b>Tunnbrod</b></div>
-		    							<div>5672</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Unit Price:</div>
-		    							<div><b>14.77</b> EUR</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Quantity:</div>
-		    							<div>2367</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Total:</div>
-		    							<div><b>34 960,59</b> EUR</div>
-		    						</div>
-		    					</div>
-		    					<div class="item-2">
-		    						<div class="item-description-2">
-		    							<div><b>Northwoods Cranberry</b></div>
-		    							<div>5046</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Unit Price:</div>
-		    							<div><b>61.69</b> EUR</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Quantity:</div>
-		    							<div>867</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Total:</div>
-		    							<div><b>53 485,23</b> EUR</div>
-		    						</div>
-		    					</div>
-		    					<div class="item-2">
-		    						<div class="item-description-2">
-		    							<div><b>Camembert Pierrot</b></div>
-		    							<div>9505</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Unit Price:</div>
-		    							<div><b>3.07</b> EUR</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Quantity:</div>
-		    							<div>1060</div>
-		    						</div>
-		    						<div class="item-description-2">
-		    							<div>Total:</div>
-		    							<div><b>3 254,20</b> EUR</div>
+		    							<div><b class="total">59 235,11</b> EUR</div>
 		    						</div>
 		    					</div>
 		    				</div>
@@ -371,5 +219,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="data.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>

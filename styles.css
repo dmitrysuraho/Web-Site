@@ -42,14 +42,10 @@ html {
 	color: rgba(0, 0, 0, 0.5);
 }
 
-.finder {
-	width: 100%;
-	background-color: red;
-}
-
 form {
 	padding: 0 2px 1px 2px;
 	display: flex;
+	width: 300px;
 }
 
 input {
@@ -68,6 +64,7 @@ input {
 	flex: 10%;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	background-color: white;
 }
 
 .svg-search img {
@@ -86,6 +83,7 @@ input {
 	border-right: 1px solid rgba(0, 0, 0, 0.2);
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	background-color: white;
 }
 
 .svg-update img {
@@ -271,7 +269,6 @@ header div {
 
 .border-svg-car {
 	height: 100%;
-	border-bottom: 2px solid rgb(70, 130, 180);
 }
 
 .svg-car {
@@ -281,7 +278,6 @@ header div {
 	border-radius: 50%;
 	padding-left: 5px;
 	padding-top: 3px;
-	background-color: rgb(70, 130, 180);
 }
 
 .svg-car img {
@@ -393,6 +389,7 @@ header div {
 
 .products-1 {
 	font-size: 13px;
+	padding-top: 5px;
 }
 
 .item-header-1 {
@@ -434,6 +431,7 @@ b {
 
 .products-2 {
 	font-size: 13px;
+	padding-top: 5px;
 }
 
 .item-header-2 {
@@ -606,3 +604,16 @@ b {
 	background: rgba(0, 0, 0, 0.3);
 }
 /*----------------------------------------*/
+
+/*------------OTHER-----------------*/
+.display-none {
+	display: none;
+}
+
+.brdr-bottom {
+	border-bottom: 2px solid rgb(70, 130, 180);
+}
+
+.back-gr-clr {
+	background-color: rgb(70, 130, 180);
+}
