@@ -13,15 +13,15 @@
 			<div class="left-column">
 				<div class="up-orders">
 					<div class="right">
-						<img class="svg-right" src="svg/back.svg">
+						<img onclick="LeftColumnDisAppearance()" class="svg-right" src="svg/back.svg">
 					</div>
 					<div class="text-up-order"><!-- Orders(10) --></div>
 				</div>
 				<div class="finder">
 					<form>
-						<input id='search-orders' type="text" onkeyup="searchOrders()" name="search" placeholder="Поиск"></input>
+						<input id='search-orders' type="text" onclick="deleteUpdateSvgOrder()" onkeyup="searchOrders()" name="search" placeholder="Поиск"></input>
 						<div class="svg-search">
-							<img src="svg/search.svg">
+							<img id="img-search" src="svg/search.svg">
 						</div>
 						<div class="svg-update">
 							<img src="svg/update.svg">
@@ -29,36 +29,23 @@
 					</form>
 				</div>
 				<div class="orders">
-					<!-- <div class="order">
-						<div class="left-num-date">
-							<div class="order-num">Order 7918</div>
-							<div class="order-date">18.09.2016</div>
-						</div>
-						<div class="left-order-info">
-							<div class="order-shipped">
-								<p>Tortuga Restaurante</p><p>Shipped: 26 сент. 2016 г.</p>
-							</div>
-							<div class="status">goodг</div>
-						</div>
-					</div> -->
+			
 				</div>
 	    	</div>
 	   		<div class="right-column">
 	    		<header>
-	    			<img class="svg-text-lines" src="svg/text-lines.svg">
+	    			<img onclick="LeftColumnAppearance()" class="svg-text-lines" src="svg/text-lines.svg">
 	    			<div>Order</div>
 	    		</header>
-	    		<div class="right-column-wo-header">
+	    		<div class="right-column-wo-header display-none">
 		    		<div class="order-info">
 		    			<div class="order-info-block">
 		    				<div class="order-price">
-		    					<div class="left-price"><!-- Order 7918 --></div>
-		    					<div class="price"><!-- 150 935,13 --><br><span class="eur"><!-- EUR --></span></div>
+		    					<div class="left-price"></div>
+		    					<div class="price"></div>
 		    				</div>
 		    				<p class="ordered-shipped">
-		    					Customer: Tortuga Restaurante<br>
-		    					Ordered: 18 сент. 2016 г.<br>
-		    					Shipped: 26 сент. 2016 г.<br>
+		    					
 		    				</p>
 		   				</div>
 		   				<div class="svg">
@@ -86,11 +73,11 @@
 		    						<div>Country:</div>
 		    					</div>
 		    					<div class="pattern-info-1">
-		    						<div class='name'><!-- ExcellentParcel --></div>
-		    			 			<div class='street'><!-- Tottenham Count Road --></div>
-		    			 			<div class='zip-code'><!-- N170AA London --></div>
-		    			 			<div class='region'><!-- Greater London --></div>
-		    			 			<div class='country'><!-- United Kingdom --></div>
+		    						<div class='name'></div>
+		    			 			<div class='street'></div>
+		    			 			<div class='zip-code'></div>
+		    			 			<div class='region'></div>
+		    			 			<div class='country'></div>
 		    					</div>	 
 		    				</div>
 		    			</div>
@@ -100,104 +87,115 @@
 		    					<div class="pattern-1">
 		    						<div>First Name:</div>
 		    						<div>Last Name:</div>
-		    						<div>Adress:</div>
+		    						<div>Address:</div>
 		    						<div>Phone:</div>
 		    						<div>Email:</div>
 		    					</div>
 		    					<div class="pattern-info-1">
-		    						<div class='name'><!-- ExcellentParcel --></div>
-		    			 			<div class='street'><!-- Tottenham Count Road --></div>
-		    			 			<div class='zip-code'><!-- N170AA London --></div>
-		    			 			<div class='region'><!-- Greater London --></div>
-		    			 			<div class='country'><!-- United Kingdom --></div>
+		    						<div class='first-name'></div>
+		    			 			<div class='last-name'></div>
+		    			 			<div class='address'></div>
+		    			 			<div class='phone'></div>
+		    			 			<div class='email'></div>
 		    					</div>	 
 		    				</div>
 		    			</div>
-		    			<div class="two-blocks-adress-2">
+		    			<div class="two-blocks-adress-2 shopping">
 		    				<div class="shipping-adress-2">Shipping Address</div>
 		    				<div class="info-2">
 		    					<div class="line-info">
 		    						<div class="pattern-2">Name:</div>
-		    						<div class="pattern-info-2 name">ExcellentParcel</div>
+		    						<div class="pattern-info-2 name"></div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Street:</div>
-		    						<div class="pattern-info-2 street">Tottenham Count Road</div>
+		    						<div class="pattern-info-2 street"></div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">ZIP Code / City:</div>
-		    						<div class="pattern-info-2 zip-code">N170AA London</div>
+		    						<div class="pattern-info-2 zip-code"></div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Region:</div>
-		    						<div class="pattern-info-2 region">Greater London</div>
+		    						<div class="pattern-info-2 region"></div>
 		    					</div>
 		    					<div class="line-info">
 		    						<div class="pattern-2">Country:</div>
-		    						<div class="pattern-info-2 country">United Kingdom</div>
+		    						<div class="pattern-info-2 country"></div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="two-blocks-adress-2 customer display-none">
+		    				<div class="shipping-adress-2">Customer info</div>
+		    				<div class="info-2">
+		    					<div class="line-info">
+		    						<div class="pattern-2">First Name:</div>
+		    						<div class="pattern-info-2 first-name"></div>
+		    					</div>
+		    					<div class="line-info">
+		    						<div class="pattern-2">Last Name::</div>
+		    						<div class="pattern-info-2 last-name"></div>
+		    					</div>
+		    					<div class="line-info">
+		    						<div class="pattern-2">Address:</div>
+		    						<div class="pattern-info-2 address"></div>
+		    					</div>
+		    					<div class="line-info">
+		    						<div class="pattern-2">Phone</div>
+		    						<div class="pattern-info-2 phone"></div>
+		    					</div>
+		    					<div class="line-info">
+		    						<div class="pattern-2">Email:</div>
+		    						<div class="pattern-info-2 email"></div>
 		    					</div>
 		    				</div>
 		    			</div>
 		    		</div>
 		    		<div class="items">
 		    			<div class="two-blocks-items-1">
-		    				<div class="line-items-1">Line Items(4)</div>
+		    				<div class="line-items-1"></div>
 		    				<form>
-								<input id='search-items-pc' type="text" onkeyup="searchItemsPC()" name="search" placeholder="Поиск"></input>
-								<div class="svg-search">
-									<img src="svg/search.svg">
+								<input onclick="deleteUpdateSvgItemPC()" id='search-items-pc' type="text" onkeyup="searchItemsPC()" name="search" placeholder="Поиск"></input>
+								<div class="svg-search-1">
+									<img id="img-search-1" src="svg/search.svg">
 								</div>
-								<div class="svg-update">
+								<div class="svg-update-1">
 									<img src="svg/update.svg">
 								</div>
 							</form>
-		    				<div class="products-1">
-		    					<div class="item-header-1">
-		    						<div class="head-item-description-1">Product</div>
-		    						<div class="item-description-1">Unit Price</div>
-		    						<div class="item-description-1">Quantity</div>
-		    						<div class="item-description-1">Total</div>
-		    					</div>
-		    					<div class="item-1">
-		    						<div class="head-item-description-1"><b class="product">Aniseed Syrup</b><br>1412</div>
-		    						<div class="item-description-1"><b class="unit-price">65.89</b> EUR</div>
-		    						<div class="item-description-1 quantity">899</div>
-		    						<div class="item-description-1"><b class="total">59 235,11</b> EUR</div>
-		    					</div>
-		    				</div>
 		    			</div>
 		    			<div class="two-blocks-items-2">
-		    				<div class="line-items-2">Line Items(4)</div>
+		    				<div class="line-items-2"></div>
 		    				<form>
-								<input id='search-items-phone' type="text" onkeyup="searchItemsPhone()" name="search" placeholder="Поиск"></input>
-								<div class="svg-search">
-									<img src="svg/search.svg">
+								<input onclick="deleteUpdateSvgItemPhone()" id='search-items-phone' type="text" onkeyup="searchItemsPhone()" name="search" placeholder="Поиск"></input>
+								<div class="svg-search-2">
+									<img id="img-search-2" src="svg/search.svg">
 								</div>
-								<div class="svg-update">
+								<div class="svg-update-2">
 									<img src="svg/update.svg">
 								</div>
 							</form>
-		    				<div class="products-2">
+		    				<!-- <div class="products-2">
 		    					<div class="item-header-2">Product</div>
 		    					<div class="item-2">
 		    						<div class="item-description-2">
-		    							<div><b class="product-1">Aniseed Syrup</b></div>
-		    							<div class="product-2">1412</div>
+		    							<div><b>Aniseed Syrup</b></div>
+		    							<div>1412</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Unit Price:</div>
-		    							<div><b class="unit-price">65.89</b> EUR</div>
+		    							<div><b>65.89</b> EUR</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Quantity:</div>
-		    							<div class="quantity">899</div>
+		    							<div>899</div>
 		    						</div>
 		    						<div class="item-description-2">
 		    							<div>Total:</div>
-		    							<div><b class="total">59 235,11</b> EUR</div>
+		    							<div><b>59 235,11</b> EUR</div>
 		    						</div>
 		    					</div>
-		    				</div>
+		    				</div> -->
 		    			</div>
 		   			</div>
 				</div>
