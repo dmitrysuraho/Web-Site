@@ -1,10 +1,12 @@
 body
 {
 	margin: 0;
+	overflow: hidden;
 }
 
 html {
-	overflow-y: hidden;
+	overflow: hidden;
+
 }
 
 .main-footer {
@@ -47,7 +49,6 @@ html {
 form {
 	padding: 0 2px 1px 2px;
 	display: flex;
-	width: 320px;
 }
 
 input {
@@ -63,7 +64,7 @@ input {
 
 .svg-search {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	background-color: white;
@@ -81,7 +82,7 @@ input {
 
 .svg-update {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-right: 1px solid rgba(0, 0, 0, 0.2);
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -100,7 +101,7 @@ input {
 
 .svg-search-1 {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	background-color: white;
@@ -118,7 +119,7 @@ input {
 
 .svg-update-1 {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-right: 1px solid rgba(0, 0, 0, 0.2);
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -137,7 +138,7 @@ input {
 
 .svg-search-2 {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	background-color: white;
@@ -155,7 +156,7 @@ input {
 
 .svg-update-2 {
 	text-align: center;
-	flex: 10%;
+	width: 30px;
 	border-right: 1px solid rgba(0, 0, 0, 0.2);
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -173,7 +174,7 @@ input {
 }
 
 .right {
-	flex: 37%;
+	flex: 42%;
 	text-indent: 10px;
 }
 
@@ -187,7 +188,7 @@ input {
 }
 
 .text-up-order {
-	flex: 63%;
+	flex: 58%;
 }
 
 .orders {
@@ -205,6 +206,10 @@ input {
 .order:hover {
 	/*background-color: rgba(0, 0, 0, 0.05);*/
 	cursor: pointer;
+}
+
+.order:last-child {
+	border-bottom: 1px solid rgba(169, 169, 169, 0.3);
 }
 
 .left-num-date {
@@ -545,19 +550,22 @@ b {
 }
 
 .footer-left {
-	min-width: 300px;
+	min-width: 320px;
+	width: 300px;
 	border-right: 1px solid white;
 	display: flex;
 	transition-property: width, min-width;
 	transition-duration: 0.15s;
 	overflow: hidden;
+	justify-content: flex-end;
 }
 
 .filter {
-	flex: 4;
+	
 	text-align: right;
 	padding-right: 10px;
 	padding-top: 3px;
+	width: 70px;
 }
 
 .svg-filter {
@@ -570,10 +578,10 @@ b {
 }
 
 .menu {
-	flex: 1;
 	text-align: right;
 	padding-right: 10px;
 	padding-top: 2px;
+	width: 70px;
 }
 
 .svg-menu {
@@ -621,7 +629,7 @@ b {
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 	.order-info-block {
 		margin-left: 15px;
 		margin-bottom: 15px;
@@ -692,6 +700,11 @@ b {
 }
 
 .back-gr-clr-border {
-	border: 1px dotted black;
+	border: 1px dotted black !important;
 	background-color: rgba(0, 72, 166, 0.07);
+}
+
+.left-column-width {
+	width: 100% !important; 
+	min-width: 100% !important;
 }
