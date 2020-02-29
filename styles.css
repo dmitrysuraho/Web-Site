@@ -37,6 +37,7 @@ html {
 	overflow: hidden;
 	background-color: white;
 	z-index: 2;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .up-orders {
@@ -204,7 +205,7 @@ input {
 }
 
 .order:hover {
-	/*background-color: rgba(0, 0, 0, 0.05);*/
+	background-color: rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 }
 
@@ -468,11 +469,53 @@ header div {
 .products-1 {
 	font-size: 13px;
 	padding-top: 5px;
+	display: flex;
+	flex-direction: column;
 }
 
 .item-header-1 {
 	background-color: rgb(240, 240, 240);
 	border-top: 2px solid rgba(169, 169, 169, 0.3);
+}
+
+.sort-products {
+	height: 12px;
+	width: 12px;
+	margin-bottom: 2px;
+}
+
+.sort-products:hover {
+	cursor: pointer;
+}
+
+.sort-price {
+	height: 12px;
+	width: 12px;
+	margin-bottom: 2px;
+}
+
+.sort-price:hover {
+	cursor: pointer;
+}
+
+.sort-quantity {
+	height: 12px;
+	width: 12px;
+	margin-bottom: 2px;
+}
+
+.sort-quantity:hover {
+	cursor: pointer;
+}
+
+.sort-total {
+	height: 12px;
+	width: 12px;
+	margin-bottom: 2px;
+}
+
+.sort-total:hover {
+	cursor: pointer;
 }
 
 .item-1, .item-header-1 {
