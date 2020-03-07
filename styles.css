@@ -590,6 +590,7 @@ b {
 	background-color: rgb(40, 40, 40);
 	width: 100%;
 	display: flex;
+	z-index: 2;
 }
 
 .footer-left {
@@ -750,4 +751,12 @@ b {
 .left-column-width {
 	width: 100% !important; 
 	min-width: 100% !important;
+	height: 90%;
+}
+
+.footer-width {
+	width: 100% !important; 
+	min-width: 100% !important;
+	z-index: 10;
+	background-color: rgb(40, 40, 40);
 }

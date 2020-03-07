@@ -364,7 +364,7 @@ function changes(screen)
 			leftColumn[0].classList.add("left-column-width");
 			leftColumn[0].style.position = "absolute";
 			let leftFooter = document.getElementsByClassName("footer-left");
-			leftFooter[0].classList.add("left-column-width");
+			leftFooter[0].classList.add("footer-width");
 			let rightColumn = document.getElementsByClassName("right-column");
 			rightColumn[0].classList.add("display-none");
 		}
@@ -374,7 +374,7 @@ function changes(screen)
 			let leftColumn = document.getElementsByClassName("left-column");
 			leftColumn[0].classList.remove("left-column-width");
 			let leftFooter = document.getElementsByClassName("footer-left");
-			leftFooter[0].classList.remove("left-column-width");
+			leftFooter[0].classList.remove("footer-width");
 			let rightColumn = document.getElementsByClassName("right-column");
 			rightColumn[0].classList.remove("display-none");
 		}
@@ -386,7 +386,7 @@ function changes(screen)
 		leftColumn[0].classList.remove("left-column-width");
 		leftColumn[0].style.position = "static";
 		let leftFooter = document.getElementsByClassName("footer-left");
-		leftFooter[0].classList.remove("left-column-width");
+		leftFooter[0].classList.remove("footer-width");
 		let rightColumn = document.getElementsByClassName("right-column");
 		rightColumn[0].classList.remove("display-none");
 	}
