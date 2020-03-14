@@ -673,7 +673,7 @@ b {
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 	.order-info-block {
 		margin-left: 15px;
 		margin-bottom: 15px;
@@ -699,6 +699,10 @@ b {
 	.two-blocks-items-2 {
 		display: block;
 	}
+}
+
+@keyframes anim {
+	50% { color: red; }
 }
 /*---------------------------------------*/
 
@@ -759,4 +763,8 @@ b {
 	min-width: 100% !important;
 	z-index: 10;
 	background-color: rgb(40, 40, 40);
+}
+
+.animationColor {
+	animation: anim 2s !important;
 }
