@@ -332,22 +332,7 @@ else
 		//check the switched order
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
-		let num;
-		for(let i = 0; i < orderCheck.length; i++)
-		{
-			if(orderCheck[i].classList.contains("back-gr-clr-border"))
-			{
-				for (let c = 0; c < Orders.length; c++)
-				{
-					if(Orders[c].id === orderNum[i].innerText.substr(6))
-					{
-						num = c;
-						break;
-					}
-				}
-				break;
-			}
-		}
+		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6)) - 1;
 		
 		//searching and generating items PC
 		let items = document.getElementsByClassName("item-1");
@@ -430,23 +415,7 @@ else
 		//check the switched order
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
-		let num;
-		for(let i = 0; i < orderCheck.length; i++)
-		{
-			if(orderCheck[i].classList.contains("back-gr-clr-border"))
-			{
-				for (let c = 0; c < Orders.length; c++)
-				{
-					if(Orders[c].id === orderNum[i].innerText.substr(6))
-					{
-						num = c;
-						break;
-					}
-				}
-
-				break;
-			}
-		}
+		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6)) - 1;
 
 		//searching and generating items phone
 		let items = document.getElementsByClassName("item-2");
