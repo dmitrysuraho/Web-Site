@@ -24,6 +24,149 @@ html {
 	display: flex;
 }
 
+/*popup*/
+.order-popup {
+	background: rgba(102, 102, 102, 0.5);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.order-popup-window {
+	width: 300px;
+	height: 430px;
+	text-align: center;
+	padding: 15px;
+	border: 2px solid rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background: white;
+}
+
+.item-popup-window {
+	width: 300px;
+	height: 255px;
+	text-align: center;
+	padding: 15px;
+	border: 2px solid rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background: white;
+}
+
+.add-new-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.add-old-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.choose-add {
+}
+
+.order-for {
+	border: none;
+	text-align: center;
+	padding-bottom: 5px;
+	font-size: 20px;
+	font-style: normal;
+}
+
+.list-customers {
+	height: 290px;
+	border: 1px solid gray;
+	display: block;
+}
+
+
+
+
+.add2-order-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.cancel2-order-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.add-order-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.cancel-order-button {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 0 12px;
+	margin: 5px;
+	text-decoration: none;
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 5px;
+}
+
+.add-order-button:hover {
+	background-color: rgba(135, 206, 250, 0.3);
+	cursor: pointer;
+}
+
+.input-add-order:first-child {
+	border: none;
+	text-align: center;
+	padding-bottom: 5px;
+	font-size: 20px;
+	font-style: normal;
+}
+
+.input-add-order {
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 30px;
+	width: 200px;
+	margin-top: 5px;
+}
 
 
 /*--------------LEFT COLUMN--------------*/
@@ -341,7 +484,7 @@ header div {
 .svg {
 	margin-left: 12px;
 	display: flex;
-	width: 150px;
+	width: 230px;
 	justify-content: space-around;
 	height: 50px;
 }
@@ -386,6 +529,54 @@ header div {
 	cursor: pointer;
 }
 
+.svg-map {
+	border: 2px solid rgb(70, 130, 180);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	padding-left: 7px;
+	padding-top: 3px;
+}
+
+.svg-map img {
+	width: 22px;
+	height: 22px;
+}
+
+.svg-map:hover {
+	cursor: pointer;
+}
+
+.edit {
+	text-align: center;
+	float: right;
+	font-size: 12px;
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 30px;
+	height: 20px;
+}
+
+.edit:hover {
+	cursor: pointer;
+}
+
+.display {
+	background-color:cornflowerblue;
+	color: white;
+	text-align: center;
+	float: right;
+	font-size: 12px;
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 50px;
+	height: 20px;
+}
+
+.display:hover {
+	cursor: pointer;
+}
+
 .ordered-shipped {
 	color: rgba(0, 0, 0, 0.6);
 }
@@ -393,6 +584,17 @@ header div {
 .address-or-info {
 	border-bottom: 2px solid rgba(169, 169, 169, 0.3);
 	margin: 0;
+}
+
+.input-info {
+	border: none;
+	font-style: normal;
+	color: rgba(0, 0, 0, 0.75);
+	width: 100%;
+}
+
+.input-border {
+	border: solid 1px rgba(0, 0, 0, 0.3);
 }
 
 .two-blocks-adress-1 {
@@ -464,6 +666,17 @@ header div {
 .line-items-1 {
 	font-size: 17px;
 	padding: 15px 10px 5px 10px;
+}
+
+.svg-add-item {
+	width: 20px;
+	height: 20px;
+	margin: 0px 10px 10px 10px;
+	float: right;
+}
+
+.svg-add-item:hover {
+	cursor: pointer; 
 }
 
 .products-1 {
@@ -604,57 +817,55 @@ b {
 	justify-content: flex-end;
 }
 
-.filter {
-	
+.add-order {
 	text-align: right;
 	padding-right: 10px;
-	padding-top: 3px;
+	padding-top: 1px;
 	width: 70px;
 }
 
-.svg-filter {
-	height: 16px;
-	width: 16px;
-}
-
-.svg-filter:hover {
-	cursor: pointer;
-}
-
-.menu {
-	text-align: right;
-	padding-right: 10px;
-	padding-top: 2px;
-	width: 70px;
-}
-
-.svg-menu {
+.svg-add-order {
 	height: 15px;
 	width: 15px;
 }
 
-.svg-menu:hover {
+.svg-add-order:hover {
 	cursor: pointer;
 }
 
 .footer-right {
 	width: 100%;
 	text-align: right;
-	padding-right: 10px;
-	padding-top: 2px;
+	padding-right: 15px;
+	padding-top: 1px;
 }
 
-.svg-message {
+.svg-delete-item {
 	height: 17px;
-	width: 17px;}
+	width: 17px;
+}
 
-.svg-message:hover {
+.svg-delete-item:hover {
+	cursor: pointer;
+}
+
+.svg-delete-order {
+	height: 17px;
+	width: 17px;
+}
+
+.svg-delete-order:hover {
+	cursor: pointer;
+}
+
+.text-delete-order {
+	color: white;
+	font-size: 15px;
+}
+.text-delete-order:hover {
 	cursor: pointer;
 }
 /*-------------------------------------*/
-
-
-
 /*----------------MEDIA-----------------*/
 @media (max-width: 900px) {
 	.left-column {
