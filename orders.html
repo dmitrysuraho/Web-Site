@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="styles.css" rel="stylesheet">
 	<link href="bootstrap.css" rel="stylesheet">
-
 </head>
 <body>
 	<div class="main-footer">
@@ -163,9 +162,17 @@
 								</div>
 							</div>
 						</div>
-						<div class="map display-none">
-							MAP
-						</div>
+						<div id="mapNEW" class="map display-none"></div>
+						<script>
+      						function initMap() {
+        						var map = new google.maps.Map(document.getElementById('mapNEW'), {
+          							center: {lat: -34.397, lng: 150.644},
+          							zoom: 8
+        						});
+      						}
+    					</script>
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnVQpa7IvsC1WxuV5EWEyUKbLiLSjkWBw&callback=initMap"
+    					async defer></script>
 					</div>
 					<div class="items">
 						<div class="two-blocks-items-1">
@@ -221,21 +228,21 @@
 			<div class="add-old-customer display-none">
 				<input class="order-for" type="text" readonly value="Order for(choose):" />
 				<div class="list-customers">
-					
+
 				</div>
 				<button class="add2-order-button">Add</button><br>
 				<button class="cancel2-order-button">Cancel</button>
 			</div>
 			<div class="add-new-customer display-none">
 				<input class="input-add-order" type="text" readonly value="Add order" />
-				<input class="input-add-order" type="text" placeholder="First name" /><br />
-				<input class="input-add-order" type="text" placeholder="Last name" /><br />
-				<input class="input-add-order" type="text" placeholder="Address" /><br />
-				<input class="input-add-order" type="text" placeholder="ZIP" /><br />
-				<input class="input-add-order" type="text" placeholder="Region" /><br />
-				<input class="input-add-order" type="text" placeholder="Country" /><br />
-				<input class="input-add-order" type="text" placeholder="Phone" /><br />
-				<input class="input-add-order" type="text" placeholder="Email" /><br />
+				<input class="input-add-order" type="text" maxlength='15' placeholder="First name" /><br />
+				<input class="input-add-order" type="text" maxlength='20' placeholder="Last name" /><br />
+				<input class="input-add-order" type="text" maxlength='30' placeholder="Address" /><br />
+				<input class="input-add-order" type="text" maxlength='10' placeholder="ZIP" /><br />
+				<input class="input-add-order" type="text" maxlength='15' placeholder="Region" /><br />
+				<input class="input-add-order" type="text" maxlength='15' placeholder="Country" /><br />
+				<input class="input-add-order" type="text" maxlength='20' placeholder="Phone" /><br />
+				<input class="input-add-order" type="text" maxlength='30' placeholder="Email" /><br />
 				<button class="add-order-button">Add</button><br>
 				<button class="cancel-order-button">Cancel</button>
 			</div>
@@ -244,10 +251,18 @@
 	<div class="item-popup display-none order-popup">
 		<div class="item-popup-window">
 			<input class="input-add-item input-add-order" type="text" readonly value="Add item" />
+			<div class="enter-quantity">
+				Quantity: <input class="input-enter-quantity" maxlength="3" type="text"/>
+			</div>
+			<div class="list-items">
+				
+			</div>
 			<button class="add-item-button">Add</button><br>
 			<button class="cancel-item-button">Canel</button>
 		</div>
 	</div>
 	<script src="script.js"></script>
+	
+	
 </body>
 </html>

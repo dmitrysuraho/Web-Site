@@ -45,7 +45,7 @@ function internalORM(sequelize) {
 		);
 	OrdersProducts.init(
 					{
-						id: {type: Sequelize.INTEGER, allowNull: false, primaryKey: true},
+						id: {type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true},
 						idOrder: {type: Sequelize.INTEGER, allowNull: false, 
 								  references: {model: Orders, key: "idOrder"}},
 						idProduct: {type: Sequelize.INTEGER, allowNull: false, 

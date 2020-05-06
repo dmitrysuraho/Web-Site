@@ -166,22 +166,22 @@ async function GenerateInfo(Orders, value, click, orderNum)
 				"Shipped: " + Orders[i].summary.shippedAt;
 
 				//'shipTo' generation(for PC - [0], and phones - [1])----------
-				document.getElementsByClassName("name")[0].innerHTML = "<input class='input-info input-ship' readonly value='" + Orders[i].shipTo.name + "'/>";
-				document.getElementsByClassName("street")[0].innerHTML = "<input class='input-info input-ship' readonly value='" + Orders[i].shipTo.address + "'/>";
-				document.getElementsByClassName("zip-code")[0].innerHTML = "<input class='input-info input-ship' readonly value='" + Orders[i].shipTo.ZIP + "'/>";
-				document.getElementsByClassName("region")[0].innerHTML = "<input class='input-info input-ship' readonly value='" + Orders[i].shipTo.region + "'/>";
-				document.getElementsByClassName("country")[0].innerHTML = "<input class='input-info input-ship' readonly value='" + Orders[i].shipTo.country + "'/>";
+				document.getElementsByClassName("name")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.name + "'/>";
+				document.getElementsByClassName("street")[0].innerHTML = "<input class='input-info input-ship' maxlength='30' readonly value='" + Orders[i].shipTo.address + "'/>";
+				document.getElementsByClassName("zip-code")[0].innerHTML = "<input class='input-info input-ship' maxlength='10' readonly value='" + Orders[i].shipTo.ZIP + "'/>";
+				document.getElementsByClassName("region")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.region + "'/>";
+				document.getElementsByClassName("country")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.country + "'/>";
 				document.getElementsByClassName("name")[1].innerHTML = Orders[i].shipTo.name;
 				document.getElementsByClassName("street")[1].innerHTML = Orders[i].shipTo.address;
 				document.getElementsByClassName("zip-code")[1].innerHTML = Orders[i].shipTo.ZIP;
 				document.getElementsByClassName("region")[1].innerHTML = Orders[i].shipTo.region;
 				document.getElementsByClassName("country")[1].innerHTML = Orders[i].shipTo.country;
 
-				document.getElementsByClassName("first-name")[0].innerHTML = "<input class='input-info input-cust' readonly value='" + Orders[i].customerInfo.firstName + "'/>";
-				document.getElementsByClassName("last-name")[0].innerHTML = "<input class='input-info input-cust' readonly value='" + Orders[i].customerInfo.lastName + "'/>";
-				document.getElementsByClassName("address")[0].innerHTML = "<input class='input-info input-cust' readonly value='" + Orders[i].customerInfo.address + "'/>";
-				document.getElementsByClassName("phone")[0].innerHTML = "<input class='input-info input-cust' readonly value='" + Orders[i].customerInfo.phone + "'/>";
-				document.getElementsByClassName("email")[0].innerHTML = "<input class='input-info input-cust' readonly value='" + Orders[i].customerInfo.email + "'/>";
+				document.getElementsByClassName("first-name")[0].innerHTML = "<input class='input-info input-cust' maxlength='15' readonly value='" + Orders[i].customerInfo.firstName + "'/>";
+				document.getElementsByClassName("last-name")[0].innerHTML = "<input class='input-info input-cust' maxlength='20' readonly value='" + Orders[i].customerInfo.lastName + "'/>";
+				document.getElementsByClassName("address")[0].innerHTML = "<input class='input-info input-cust' maxlength='30' readonly value='" + Orders[i].customerInfo.address + "'/>";
+				document.getElementsByClassName("phone")[0].innerHTML = "<input class='input-info input-cust' maxlength='20' readonly value='" + Orders[i].customerInfo.phone + "'/>";
+				document.getElementsByClassName("email")[0].innerHTML = "<input class='input-info input-cust' maxlength='30' readonly value='" + Orders[i].customerInfo.email + "'/>";
 				document.getElementsByClassName("first-name")[1].innerHTML = Orders[i].customerInfo.firstName;
 				document.getElementsByClassName("last-name")[1].innerHTML = Orders[i].customerInfo.lastName;
 				document.getElementsByClassName("address")[1].innerHTML = Orders[i].customerInfo.address;
@@ -279,7 +279,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 					itemPrice.innerHTML = "<b>" + Prod[d].price + "</b> " + Prod[d].currency;
 					itemQuantity.innerHTML = Prod[d].quantity;
 					itemTotalPrice.innerHTML = "<b>" + Prod[d].totalPrice + "</b> " + Prod[d].currency;
-					delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id} img-${d}' src='svg/delete-item.svg'></div>`;
+					delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg' onclick='deleteItem(this)'></div>`;
 					items.appendChild(headItem);
 					items.appendChild(itemPrice);
 					items.appendChild(itemQuantity);
@@ -437,7 +437,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 				itemPrice.innerHTML = "<b>" + Prod[d].price + "</b> " + Prod[d].currency;
 				itemQuantity.innerHTML = Prod[d].quantity;
 				itemTotalPrice.innerHTML = "<b>" + Prod[d].totalPrice + "</b> " + Prod[d].currency;
-				delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id} img-${d}' src='svg/delete-item.svg'></div>`;
+				delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg'></div>`;
 				items.appendChild(headItem);
 				items.appendChild(itemPrice);
 				items.appendChild(itemQuantity);
@@ -631,7 +631,7 @@ function CustomerInfo()
 
 }
 
-function Map()
+function MapClick()
 {
 	//PC
 	let elem1 = document.getElementsByClassName("shopping");
@@ -672,7 +672,7 @@ function Map()
 }
 document.getElementsByClassName("border-svg-car")[0].addEventListener("click", ShippingAdress);
 document.getElementsByClassName("border-svg-man")[0].addEventListener("click", CustomerInfo);
-document.getElementsByClassName("border-svg-map")[0].addEventListener("click", Map);
+document.getElementsByClassName("border-svg-map")[0].addEventListener("click", MapClick);
 
 //-----------genaration information for every order-------------------------------------------------------------------------------------------------
 
@@ -1068,11 +1068,13 @@ document.getElementsByClassName("edit-cust")[0].addEventListener("click", CustEd
 
 async function ShipDisplay()
 {
+	let info = document.getElementsByClassName("input-ship");
+	if(!isNaN(Number(info[2].value)))
+	{
 	let edit = document.getElementsByClassName("edit-ship");
 	edit[0].classList.remove("display-none");
 	let display = document.getElementsByClassName("display-ship");
 	display[0].classList.add("display-none");
-	let info = document.getElementsByClassName("input-ship");
 	for(let i = 0; i < info.length; i++)
 	{
 		info[i].classList.add("input-info");
@@ -1110,6 +1112,8 @@ async function ShipDisplay()
     	body: JSON.stringify(DisplayOrder)
 	});
 	window.location.reload();
+	}
+	else alert("Некорректный ZIP");
 }
 async function CustDisplay()
 {
@@ -1167,10 +1171,29 @@ function ChooseNew()
 }
 document.getElementsByClassName("add-new-button")[0].addEventListener("click", ChooseNew);
 
-function ChooseOld()
+async function ChooseOld()
 {
 	document.getElementsByClassName("add-old-customer")[0].classList.remove("display-none");
 	document.getElementsByClassName("choose-add")[0].classList.add("display-none");
+	var listCastomers = document.getElementsByClassName("list-customers");
+	const CustomersData = await fetch(`http://localhost:3000/api/Customers`, {
+		method: 'GET'
+	});
+	const Customers = await CustomersData.json();
+	Customers.forEach(el => {
+		var list = document.getElementsByClassName("list-customers")[0];
+		var cust = document.createElement("div");
+		cust.classList.add("cust");
+		var name = document.createElement("div");
+		name.classList.add("first-last-name");
+		name.innerHTML = el.name;
+		var radio = document.createElement("div");
+		radio.classList.add("radio");
+		radio.innerHTML = `<input type='radio' name='review_type' value='${el.idCustomer}' onclick='checkType(this)'>`
+		cust.appendChild(name);
+		cust.appendChild(radio);
+		list.appendChild(cust);
+	});
 }
 document.getElementsByClassName("add-old-button")[0].addEventListener("click", ChooseOld);
 
@@ -1183,12 +1206,15 @@ document.getElementsByClassName("svg-add-order")[0].addEventListener("click", Or
 async function OrderPopupAdd()
 {
 	let input = document.getElementsByClassName("input-add-order");
+	if(!isNaN(Number(input[4].value)))
+	{
+	var date = new Date();
 	order = {
         "summary": {
-            "createdAt": `${(new Date).getFullYear()}.${(new Date).getMonth()}.${(new Date).getDate()}`,
+            "createdAt": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
             "customer": input[1].value,
             "status": "Pending",
-            "shippedAt": `${(new Date).getFullYear()}.${(new Date).getMonth()}.${(new Date).getDate()}`,
+            "shippedAt": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
             "totalPrice": 0,
             "currency": "EUR"
         },
@@ -1216,16 +1242,40 @@ async function OrderPopupAdd()
     	body: JSON.stringify(order)
   	});
 	window.location.reload();
+	}
+	else alert("Некорректный ZIP");
 }
 document.getElementsByClassName("add-order-button")[0].addEventListener("click", OrderPopupAdd);
 
+var orderRadio;
+function checkType(radio)
+{
+	orderRadio = radio;
+}
+
 async function OrderPopupNewAdd()
 {
-	var listCastomers = document.getElementsByClassName("list-customers");
-	const CustomersData = await fetch(`http://localhost:3000/api/Customers`, {
-		method: 'GET'
-	});
-	const Customers = await CustomersData.json();
+	if(orderRadio != undefined)
+	{
+		var date = new Date();
+		await fetch(`http://localhost:3000/api/CustomerOrder`, {
+			credentials: 'same-origin', 
+	   			method: 'POST',  
+    			headers: {
+     				"Content-type": "application/json; charset=UTF-8"  
+    		},  
+	   		body: JSON.stringify({
+    			"idCustomer": orderRadio.value,
+    			"createdAt": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+           		"shippedAt": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+           		"status": "Pending",
+       	    	"currency": "EUR"
+    		})
+  		})
+		.catch(err => alert(err));
+		window.location.reload();
+	}
+	else alert("Некорректные данные");
 }
 document.getElementsByClassName("add2-order-button")[0].addEventListener("click", OrderPopupNewAdd);
 
@@ -1253,7 +1303,7 @@ async function DeleteOrder()
     		},
   		})
   		.catch(err => alert(err));
-		window.location.reload();
+  		window.location.reload();
 	}
 }
 document.getElementsByClassName("svg-delete-order")[0].addEventListener("click", DeleteOrder);
@@ -1263,6 +1313,7 @@ function OrderPopupClose()
 	document.getElementsByClassName("order-popup")[0].classList.add("display-none");
 	document.getElementsByClassName("add-new-customer")[0].classList.add("display-none");
 	document.getElementsByClassName("choose-add")[0].classList.remove("display-none");
+	window.location.reload();
 }
 document.getElementsByClassName("cancel-order-button")[0].addEventListener("click", OrderPopupClose);
 
@@ -1271,17 +1322,82 @@ function OrderPopupNewClose()
 	document.getElementsByClassName("order-popup")[0].classList.add("display-none");
 	document.getElementsByClassName("add-old-customer")[0].classList.add("display-none");
 	document.getElementsByClassName("choose-add")[0].classList.remove("display-none");
+	window.location.reload();
 }
 document.getElementsByClassName("cancel2-order-button")[0].addEventListener("click", OrderPopupNewClose);
 
-function ItemPopupOpen()
+async function ItemPopupOpen()
 {
 	document.getElementsByClassName("item-popup")[0].classList.remove("display-none");
+	const ProductsData = await fetch(`http://localhost:3000/api/products`, {
+		method: 'GET'
+	});
+	const Products = await ProductsData.json();
+	var list = document.getElementsByClassName("list-items")[0];
+	Products.forEach(el => {
+		var prod = document.createElement("div");
+		prod.classList.add("product-item");
+		var infoItem = document.createElement("div");
+		infoItem.classList.add("info-item");
+		var nameItem = document.createElement("div");
+		nameItem.classList.add("name-item");
+		nameItem.innerHTML = `<b>${el.name}</b>`;
+		var priceItem = document.createElement("div");
+		priceItem.classList.add("price-item");
+		priceItem.innerHTML = `${el.price} ${el.currency}`;
+		var radioItem = document.createElement("div");
+		radioItem.classList.add("radio-item");
+		radioItem.innerHTML = `<input type='radio' name='review_type2' value='${el.idProduct}' onclick='checkItem(this)'/>`;
+		infoItem.appendChild(nameItem);
+		infoItem.appendChild(priceItem);
+		infoItem.appendChild(radioItem);
+		prod.appendChild(infoItem);
+		list.appendChild(prod);
+	});
 }
 document.getElementsByClassName("svg-add-item")[0].addEventListener("click", ItemPopupOpen);
 
+var itemRadio;
+function checkItem(id)
+{
+	itemRadio = id;
+}
 
 async function ItemPopupAdd()
+{
+	var input = document.getElementsByClassName("input-enter-quantity")[0];
+	if(input.value != "" && !isNaN(Number(input.value)) && itemRadio != undefined)
+	{
+		var orderNum = document.getElementsByClassName("order-num");
+		var orders = document.getElementsByClassName("order");
+		var id = 0;
+		for (var i = 0; i < orderNum.length; i++)
+		{
+			if(orders[i].className.includes("back-gr-clr-border"))
+			{
+				id = Number(orderNum[i].innerText.substr(6));
+				break;
+			}
+		}
+		await fetch(`http://localhost:3000/api/Orders/${id}/products`, {
+			credentials: 'same-origin', 
+			method: 'POST',  
+			headers: {
+				"Content-type": "application/json; charset=UTF-8"  
+			},  
+   			body: JSON.stringify({
+				"idProduct": itemRadio.value,
+				"quantity": Number(input.value)
+			})
+		})
+		.catch(err => alert(err));
+		window.location.reload();
+	}
+	else alert("Некорректные данные");
+}
+document.getElementsByClassName("add-item-button")[0].addEventListener("click", ItemPopupAdd);
+
+async function deleteItem(item)
 {
 	let orders = document.getElementsByClassName("order");
 	let orderNum = document.getElementsByClassName("order-num");
@@ -1290,57 +1406,28 @@ async function ItemPopupAdd()
 	{
 		if (orders[c].className.includes("back-gr-clr-border"))
 		{
-			i = Number(orderNum[c].innerText.substr(6));
+			i = orderNum[c].innerText.substr(6);
 			break;
 		}
 	}
-	let input = document.getElementsByClassName("input-add-item");
-	item = {
-   		"name": input[1].value,
-    	"price": Number(input[2].value),
-   		"currency": "EUR",
-   		"quantity": Number(input[3].value),
-   		"totalPrice": Number(input[2].value) * Number(input[3].value),
-   		"orderId": i
-    };
-	await fetch(`http://localhost:3000/api/Orders/${i}/products`, {
-	credentials: 'same-origin', 
-    method: 'POST',  
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"  
-    },  
-    body: JSON.stringify(item)
-  })
-	.catch(err => alert(err));
-	window.location.reload();
+	var idProduct = Number(item.className.substr(28));
+	await fetch(`http://localhost:3000/api/Orders/${i}/products/${idProduct}`, {
+		credentials: 'same-origin', 
+   		method: 'DELETE',
+   		headers: {
+   			'Content-Type': 'application/json'
+   		},
+  	})
+  	.catch(err => alert(err));
+  	window.location.reload();
 }
-document.getElementsByClassName("add-item-button")[0].addEventListener("click", ItemPopupAdd);
-
-// function DelItem()
-// 	{
-// 	// let item = document.getElementsByClassName(`img-${del}}`);
-// 	// let orderId = item[0].className.substr(30);
-// 	// alert(item[0].className);
-// 		alert("afafa");
-// 	// await fetch(`http://localhost:3000/api/Orders/${i}/products/${j}`, {
-// 	// 	credentials: 'same-origin', 
-//  //  			method: 'DELETE',
-//  //  			headers: {
-//  //  	   		'Content-Type': 'application/json'
-//  //   		},
-//  // 		})
-//  // 		.catch(err => alert(err));
-// 	// window.location.reload();
-// 	}
-// 	document.getElementsByClassName("item-header-1")[0].addEventListener("click", DelItem);
 
 function ItemPopupClose()
 {
 	document.getElementsByClassName("item-popup")[0].classList.add("display-none");
+	window.location.reload();
 }
-document.getElementsByClassName("add-item-button")[0].addEventListener("click", ItemPopupClose);
 document.getElementsByClassName("cancel-item-button")[0].addEventListener("click", ItemPopupClose);
-
 
 async function UpdateOrders()
 {
@@ -1436,7 +1523,7 @@ async function UpdateItemsPC()
 			itemPrice.innerHTML = "<b>" + Prod[d].price + "</b> " + Prod[d].currency;
 			itemQuantity.innerHTML = Prod[d].quantity;
 			itemTotalPrice.innerHTML = "<b>" + Prod[d].totalPrice + "</b> " + Prod[d].currency;
-			delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id} img-${d}' src='svg/delete-item.svg'></div>`;
+			delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg'></div>`;
 			items.appendChild(headItem);
 			items.appendChild(itemPrice);
 			items.appendChild(itemQuantity);
@@ -1539,4 +1626,3 @@ async function UpdateItemsPhone()
 
 }
 document.getElementsByClassName("svg-update-2")[0].addEventListener("click", UpdateItemsPhone);
-

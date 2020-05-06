@@ -45,6 +45,13 @@ app.get("/api/Orders", (req, res) => {
 					);
 				});
 			});
+			arr.sort(function(a, b) {
+				if(a.id > b.id)
+					return 1;
+				if(a.id < b.id)
+					return -1;
+				return 0;
+			});
 			res.type('json').send(arr);
 		});
 	})
@@ -69,6 +76,13 @@ app.get("/api/Orders/:x/products", (req, res) => {
         			"id": el.IDPRODUCT,
         			"orderId": el.IDORDER
 				});
+			});
+			arr.sort(function(a, b) {
+				if(a.id > b.id)
+					return 1;
+				if(a.id < b.id)
+					return -1;
+				return 0;
 			});
 			res.type("json").send(arr);
 		});
@@ -208,11 +222,170 @@ app.post("/api/Orders", (req, res) => {
 	else res.status(400).type("txt").send("no bodyparser");
 });
 
+app.delete("/api/Orders/:x", (req, res, next) => {
+	sequelize.authenticate()
+	.then(() => {console.log("Соединение с базой данных установлено")})
+	.then(() => {
+		OrdersProducts.destroy({where: {idOrder:Number(req.params.x)}});
+		Orders.destroy({where: {idOrder: Number(req.params.x)}});
+		res.send();
+	})
+	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+});
+
 app.get("/api/Customers", (req, res) => {
 	sequelize.authenticate()
 	.then(() => {console.log("Соединение с базой данных установлено")})
 	.then(() => {
-		
+		var arr = new Array();
+		Customers.findAll()
+		.then(result => {
+			result.forEach(el => {
+				arr.push({
+					"idCustomer": el.dataValues.idCustomer,
+					"name": `${el.dataValues.firstName.trim()} ${el.dataValues.lastName.trim()}`
+				});
+			});
+			res.send(arr);
+		});
+	})
+	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+});
+
+app.post("/api/CustomerOrder" , (req, res) => {
+	if(req.body)
+	{
+		var customer = req.body;
+		sequelize.authenticate()
+		.then(() => {console.log("Соединение с базой данных установлено")})
+		.then(() => {
+			Orders.create({
+				idCustomer: customer.idCustomer,
+				createdAt: customer.createdAt,
+				shippedAt: customer.shippedAt,
+				status: customer.status,
+				currency: customer.currency
+			});
+			res.send();
+		})
+		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	}
+	else res.status(400).type("txt").send("no bodyparser");
+});
+
+app.get("/api/products", (req, res) => {
+	sequelize.authenticate()
+		.then(() => {console.log("Соединение с базой данных установлено")})
+		.then(() => {
+			var arr = new Array();
+			Products.findAll()
+			.then(result => {
+				result.forEach(el => {
+					arr.push({
+						"idProduct": el.dataValues.idProduct,
+						"name" : el.dataValues.name.trim(),
+						"price": el.dataValues.price,
+						"currency": el.dataValues.currency.trim()
+					});
+				});
+				res.send(arr);
+			});
+		})
+		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+});
+
+app.post("/api/Orders/:x/products", (req, res) => {
+	if(req.body)
+	{
+		var product = req.body;
+		sequelize.authenticate()
+		.then(() => {console.log("Соединение с базой данных установлено")})
+		.then(() => {
+			var flag = false;
+			var newQuantity = 0;
+			OrdersProducts.findAll({
+				where: {idOrder: Number(req.params.x)}
+			})
+			.then(result => {
+				result.forEach(el => {
+					if(product.idProduct === el.dataValues.idProduct)
+					{
+						flag = true;
+						newQuantity = el.dataValues.quantity + product.quantity;
+					}
+				})
+			})
+			.catch(err => {console.log(err)});
+			if(flag)
+			{
+				OrdersProducts.update(
+					{ quantity: newQuantity },
+					{ where: {idOrder: Number(req.params.x)}} 
+				)
+				.catch(err => {console.log(err)});
+			}
+			else
+			{
+				OrdersProducts.create({
+					idOrder: Number(req.params.x),
+					idProduct: product.idProduct,
+					quantity: product.quantity
+				})
+				.catch(err => {console.log(err)});
+			}
+			res.send();
+		})
+		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	}
+	else res.status(400).type("txt").send("no bodyparser");
+});
+
+app.post("/api/products", (req, res) => {
+	if(req.body)
+	{                                                                                //Добавление продукта(json):
+		var product = req.body;                                                      // "name": "...",
+		sequelize.authenticate()                                                     // "price": ...,
+		.then(() => {console.log("Соединение с базой данных установлено")})          // "currency": "..."
+		.then(() => {                                                                //
+			Products.create({
+				name: product.name,
+				price: product.price,
+				currency: product.currency
+			})
+			.then(result => {res.type("json").send(result);})
+			.catch(err => {console.log(err)});
+		})
+		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	}
+	else res.status(400).type("txt").send("no bodyparser");
+});
+
+app.delete("/api/products/:x", (req, res) => {                                                                              
+	var product = req.body;                                                      
+	sequelize.authenticate()                                                     
+	.then(() => {console.log("Соединение с базой данных установлено")})          
+	.then(() => {                                                                
+		Products.destroy({
+			where: {idProduct: Number(req.params.x)}
+		})
+		.then(result => {res.type("text").send(`Deleted: ${result}`);})
+		.catch(err => {console.log(err)});
+	})
+	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+});
+
+app.delete("/api/Orders/:x/products/:y", (req, res) => {
+	sequelize.authenticate()                                                     
+	.then(() => {console.log("Соединение с базой данных установлено")})          
+	.then(() => {                                                                
+		OrdersProducts.destroy({
+			where: {
+				idOrder: Number(req.params.x),
+				idProduct: Number(req.params.y)
+			}
+		})
+		.then(result => {res.type("text").send(`Deleted: ${result}`);})
+		.catch(err => {console.log(err)});
 	})
 	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
 });
