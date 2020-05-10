@@ -227,6 +227,15 @@ app.delete("/api/Orders/:x", (req, res, next) => {
 	.then(() => {console.log("Соединение с базой данных установлено")})
 	.then(() => {
 		OrdersProducts.destroy({where: {idOrder:Number(req.params.x)}});
+	})
+	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	next();
+});
+
+app.delete("/api/Orders/:x", (req, res) => {
+	sequelize.authenticate()
+	.then(() => {console.log("Соединение с базой данных установлено")})
+	.then(() => {
 		Orders.destroy({where: {idOrder: Number(req.params.x)}});
 		res.send();
 	})
