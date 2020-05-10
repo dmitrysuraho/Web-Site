@@ -399,4 +399,10 @@ app.delete("/api/Orders/:x/products/:y", (req, res) => {
 	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
 });
 
+app.use(express.static(__dirname));
+
+app.get('/Orders', (req, res) => {
+	res.sendfile('orders.html');
+});
+
 app.listen(3000, function(){console.log("server listen: 3000")});
