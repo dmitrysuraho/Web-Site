@@ -5,6 +5,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+const PORT = process.env.PORT || 80;
+
 app.use(express.json());
 app.use(cors());
 
@@ -420,4 +422,4 @@ app.get('/Orders', (req, res) => {
 	else res.sendfile("orders.html");
 });
 
-app.listen(3000, function(){console.log("server listen: 3000")});
+app.listen(PORT, function(){console.log(`server listen: ${PORT}`)});

@@ -1,6 +1,6 @@
 window.onload = async function()
 {
-	const OrdersData = await fetch("http://localhost:3000/api/Orders", {
+	const OrdersData = await fetch("https://frozen-eyrie-51293.herokuapp.com/api/Orders", {
 		method: 'GET'
 	});
 	const Orders = await OrdersData.json();
@@ -156,7 +156,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 				//order info generation----------------------------------------------------------------------------------------------
 				document.getElementsByClassName("right-column-wo-header")[0].classList.remove("display-none");
 				document.getElementsByClassName("left-price")[0].innerHTML = "Order " + Orders[i].id;
-				const ProductsData = await fetch(`http://localhost:3000/api/Orders/${numPr}/products`, {
+				const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${numPr}/products`, {
 					method: 'GET'
 				});
 				const Prod = await ProductsData.json();
@@ -373,7 +373,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 		}
 		let preloader = document.getElementById("preloader");
 		preloader.style.display = "block";
-		const OrdersData = await fetch("http://localhost:3000/api/Orders", {
+		const OrdersData = await fetch("https://frozen-eyrie-51293.herokuapp.com/api/Orders", {
 			method: 'GET'
 		});
 		const Orders = await OrdersData.json();
@@ -436,7 +436,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
 		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6));
-		const ProductsData = await fetch(`http://localhost:3000/api/Orders/${num}/products`, {
+		const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${num}/products`, {
 			method: 'GET'
 		});
 		const Prod = await ProductsData.json();
@@ -525,7 +525,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
 		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6));
-		const ProductsData = await fetch(`http://localhost:3000/api/Orders/${num}/products`, {
+		const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${num}/products`, {
 			method: 'GET'
 		});
 		const Prod = await ProductsData.json();
@@ -1128,7 +1128,7 @@ async function ShipDisplay()
 			break;
 		}
 	}
-	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	const OrderData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'GET'
 	});
 	const DisplayOrder = await OrderData.json();
@@ -1140,7 +1140,7 @@ async function ShipDisplay()
 	DisplayOrder.shipTo.ZIP = info[2].value;
 	DisplayOrder.shipTo.region = info[3].value;
 	DisplayOrder.shipTo.country = info[4].value;
-	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'PUT',
 		headers: {
       		"Content-type": "application/json; charset=UTF-8"  
@@ -1175,7 +1175,7 @@ async function CustDisplay()
 			break;
 		}
 	}
-	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	const OrderData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'GET'
 	});
 	const DisplayOrder = await OrderData.json();
@@ -1187,7 +1187,7 @@ async function CustDisplay()
 	DisplayOrder.customerInfo.address = info[2].value;
 	DisplayOrder.customerInfo.phone = info[3].value;
 	DisplayOrder.customerInfo.email = info[4].value;
-	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'PUT',
 		headers: {
       		"Content-type": "application/json; charset=UTF-8"  
@@ -1256,7 +1256,7 @@ async function ShipDisplayPhone()
 			break;
 		}
 	}
-	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	const OrderData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'GET'
 	});
 	const DisplayOrder = await OrderData.json();
@@ -1268,7 +1268,7 @@ async function ShipDisplayPhone()
 	DisplayOrder.shipTo.ZIP = info[2].value;
 	DisplayOrder.shipTo.region = info[3].value;
 	DisplayOrder.shipTo.country = info[4].value;
-	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'PUT',
 		headers: {
       		"Content-type": "application/json; charset=UTF-8"  
@@ -1303,7 +1303,7 @@ async function CustDisplayPhone()
 			break;
 		}
 	}
-	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	const OrderData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'GET'
 	});
 	const DisplayOrder = await OrderData.json();
@@ -1315,7 +1315,7 @@ async function CustDisplayPhone()
 	DisplayOrder.customerInfo.address = info[2].value;
 	DisplayOrder.customerInfo.phone = info[3].value;
 	DisplayOrder.customerInfo.email = info[4].value;
-	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+	await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 		method: 'PUT',
 		headers: {
       		"Content-type": "application/json; charset=UTF-8"  
@@ -1340,7 +1340,7 @@ async function ChooseOld()
 	document.getElementsByClassName("add-old-customer")[0].classList.remove("display-none");
 	document.getElementsByClassName("choose-add")[0].classList.add("display-none");
 	var listCastomers = document.getElementsByClassName("list-customers");
-	const CustomersData = await fetch(`http://localhost:3000/api/Customers`, {
+	const CustomersData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Customers`, {
 		method: 'GET'
 	});
 	const Customers = await CustomersData.json();
@@ -1397,7 +1397,7 @@ async function OrderPopupAdd()
             "email": input[8].value
         }
     };
-	const Ord = await fetch(`http://localhost:3000/api/Orders`, {
+	const Ord = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders`, {
 	credentials: 'same-origin', 
     method: 'POST',  
     headers: {
@@ -1422,7 +1422,7 @@ async function OrderPopupNewAdd()
 	if(orderRadio != undefined)
 	{
 		var date = new Date();
-		await fetch(`http://localhost:3000/api/CustomerOrder`, {
+		await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/CustomerOrder`, {
 			credentials: 'same-origin', 
 	   			method: 'POST',  
     			headers: {
@@ -1459,7 +1459,7 @@ async function DeleteOrder()
 	if (i == 0) alert("Выберите нужный заказ");
 	else 
 	{
-		await fetch(`http://localhost:3000/api/Orders/${i}`, {
+		await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}`, {
 			credentials: 'same-origin', 
    			method: 'DELETE',
    			headers: {
@@ -1494,7 +1494,7 @@ document.getElementsByClassName("cancel2-order-button")[0].addEventListener("cli
 async function ItemPopupOpen()
 {
 	document.getElementsByClassName("item-popup")[0].classList.remove("display-none");
-	const ProductsData = await fetch(`http://localhost:3000/api/products`, {
+	const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/products`, {
 		method: 'GET'
 	});
 	const Products = await ProductsData.json();
@@ -1545,7 +1545,7 @@ async function ItemPopupAdd()
 				break;
 			}
 		}
-		await fetch(`http://localhost:3000/api/Orders/${id}/products`, {
+		await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${id}/products`, {
 			credentials: 'same-origin', 
 			method: 'POST',  
 			headers: {
@@ -1577,7 +1577,7 @@ async function deleteItem(item)
 		}
 	}
 	var idProduct = Number(item.className.substr(28));
-	await fetch(`http://localhost:3000/api/Orders/${i}/products/${idProduct}`, {
+	await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${i}/products/${idProduct}`, {
 		credentials: 'same-origin', 
    		method: 'DELETE',
    		headers: {
@@ -1607,7 +1607,7 @@ async function UpdateOrders()
 	preload.id = "preloader";
 	preload.innerHTML = '<div id="floatingBarsG"><div class="blockG" id="rotateG_01"></div><div class="blockG" id="rotateG_02"></div><div class="blockG" id="rotateG_03"></div><div class="blockG" id="rotateG_04"></div><div class="blockG" id="rotateG_05"></div><div class="blockG" id="rotateG_06"></div><div class="blockG" id="rotateG_07"></div><div class="blockG" id="rotateG_08"></div></div>';
 	ord[0].appendChild(preload);
-	const OrdersData = await fetch("http://localhost:3000/api/Orders", {
+	const OrdersData = await fetch("https://frozen-eyrie-51293.herokuapp.com/api/Orders", {
 		method: 'GET'
 	});
 	const Orders = await OrdersData.json();
@@ -1667,7 +1667,7 @@ async function UpdateItemsPC()
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
 		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6));
-		const ProductsData = await fetch(`http://localhost:3000/api/Orders/${num}/products`, {
+		const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${num}/products`, {
 			method: 'GET'
 		});
 		const Prod = await ProductsData.json();
@@ -1749,7 +1749,7 @@ async function UpdateItemsPhone()
 		let orderCheck = document.getElementsByClassName("order");
 		let orderNum = document.getElementsByClassName("order-num");
 		let num = Number(document.getElementsByClassName("left-price")[0].innerText.substr(6));
-		const ProductsData = await fetch(`http://localhost:3000/api/Orders/${num}/products`, {
+		const ProductsData = await fetch(`https://frozen-eyrie-51293.herokuapp.com/api/Orders/${num}/products`, {
 			method: 'GET'
 		});
 		const Prod = await ProductsData.json();
