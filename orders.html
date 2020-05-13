@@ -28,7 +28,18 @@
 					</form>
 				</div>
 				<div class="orders">
-
+					<div id="preloader" style="display: none">
+						<div id="floatingBarsG">
+							<div class="blockG" id="rotateG_01"></div>
+							<div class="blockG" id="rotateG_02"></div>
+							<div class="blockG" id="rotateG_03"></div>
+							<div class="blockG" id="rotateG_04"></div>
+							<div class="blockG" id="rotateG_05"></div>
+							<div class="blockG" id="rotateG_06"></div>
+							<div class="blockG" id="rotateG_07"></div>
+							<div class="blockG" id="rotateG_08"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="right-column">
@@ -113,7 +124,11 @@
 							</div>
 						</div>
 						<div class="two-blocks-adress-2 shopping">
-							<div class="shipping-adress-2">Shipping Address</div>
+							<div class="shipping-adress-2">
+								Shipping Address
+								<div class="edit edit-ship-phone">Edit</div>
+								<div class="display display-ship-phone display-none">Display</div>
+							</div>
 							<div class="info-2">
 								<div class="line-info">
 									<div class="pattern-2">Name:</div>
@@ -138,7 +153,11 @@
 							</div>
 						</div>
 						<div class="two-blocks-adress-2 customer display-none">
-							<div class="shipping-adress-2">Customer info</div>
+							<div class="shipping-adress-2">
+								Customer info
+								<div class="edit edit-cust-phone">Edit</div>
+								<div class="display display-cust-phone display-none">Display</div>
+							</div>
 							<div class="info-2">
 								<div class="line-info">
 									<div class="pattern-2">First Name:</div>
@@ -163,16 +182,6 @@
 							</div>
 						</div>
 						<div id="mapNEW" class="map display-none"></div>
-						<script>
-      						function initMap() {
-        						var map = new google.maps.Map(document.getElementById('mapNEW'), {
-          							center: {lat: -34.397, lng: 150.644},
-          							zoom: 8
-        						});
-      						}
-    					</script>
-						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnVQpa7IvsC1WxuV5EWEyUKbLiLSjkWBw&callback=initMap"
-    					async defer></script>
 					</div>
 					<div class="items">
 						<div class="two-blocks-items-1">
@@ -199,6 +208,9 @@
 								</div>
 								<div class="svg-update-2">
 									<img src="svg/update.svg">
+								</div>
+								<div class="svg-add-item">
+									<img src="svg/add-item.svg"/>
 								</div>
 							</form>
 						</div>
@@ -262,7 +274,6 @@
 		</div>
 	</div>
 	<script src="script.js"></script>
-	
-	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnVQpa7IvsC1WxuV5EWEyUKbLiLSjkWBw&callback=initMap" async defer></script>
 </body>
 </html>

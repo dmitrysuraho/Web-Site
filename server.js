@@ -312,36 +312,34 @@ app.post("/api/Orders/:x/products", (req, res) => {
 		.then(() => {
 			var flag = false;
 			var newQuantity = 0;
-			OrdersProducts.findAll({
-				where: {idOrder: Number(req.params.x)}
-			})
+			OrdersProducts.findAll()
 			.then(result => {
 				result.forEach(el => {
-					if(product.idProduct === el.dataValues.idProduct)
+					if(product.idProduct === el.dataValues.idProduct && Number(req.params.x) === el.dataValues.idOrder)
 					{
 						flag = true;
 						newQuantity = el.dataValues.quantity + product.quantity;
 					}
-				})
+				});
+				if(flag)
+				{
+					OrdersProducts.update(
+						{ quantity: newQuantity },
+						{ where: {idOrder: Number(req.params.x), idProduct: product.idProduct}} 
+					)
+					.catch(err => {console.log(err)});
+				}
+				else
+				{
+					OrdersProducts.create({
+						idOrder: Number(req.params.x),
+						idProduct: product.idProduct,
+						quantity: product.quantity
+					})
+					.catch(err => {console.log(err)});
+				}
 			})
 			.catch(err => {console.log(err)});
-			if(flag)
-			{
-				OrdersProducts.update(
-					{ quantity: newQuantity },
-					{ where: {idOrder: Number(req.params.x)}} 
-				)
-				.catch(err => {console.log(err)});
-			}
-			else
-			{
-				OrdersProducts.create({
-					idOrder: Number(req.params.x),
-					idProduct: product.idProduct,
-					quantity: product.quantity
-				})
-				.catch(err => {console.log(err)});
-			}
 			res.send();
 		})
 		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
@@ -351,11 +349,11 @@ app.post("/api/Orders/:x/products", (req, res) => {
 
 app.post("/api/products", (req, res) => {
 	if(req.body)
-	{                                                                                //Добавление продукта(json):
-		var product = req.body;                                                      // "name": "...",
-		sequelize.authenticate()                                                     // "price": ...,
-		.then(() => {console.log("Соединение с базой данных установлено")})          // "currency": "..."
-		.then(() => {                                                                //
+	{                                                                                
+		var product = req.body;                                                     
+		sequelize.authenticate()                                                     
+		.then(() => {console.log("Соединение с базой данных установлено")})          
+		.then(() => {                                                                
 			Products.create({
 				name: product.name,
 				price: product.price,
@@ -402,7 +400,24 @@ app.delete("/api/Orders/:x/products/:y", (req, res) => {
 app.use(express.static(__dirname));
 
 app.get('/Orders', (req, res) => {
-	res.sendfile('orders.html');
+	if(req.query.id)
+	{
+		sequelize.authenticate()
+		.then(() => {console.log("Соединение с базой данных установлено")})
+		.then(() => {
+			Orders.findAll({where: {idOrder: Number(req.query.id)}})
+			.then(result => {
+				var i = 0;
+				result.forEach(el => {
+					i++;
+				});
+				if(i == 0) res.sendfile("NotFound404.html");
+				else res.sendfile("orders.html");
+			});
+		})
+		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	}
+	else res.sendfile("orders.html");
 });
 
 app.listen(3000, function(){console.log("server listen: 3000")});

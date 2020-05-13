@@ -94,6 +94,12 @@ async function GenerateInfo(Orders, value, click, orderNum)
 	// {
 	// 		function OrdersClick()
 	// 		{
+				if(document.getElementsByClassName("nothing-to-find-item-pc"))
+				{
+					while(document.getElementsByClassName("nothing-to-find-item-pc")[0])
+						document.getElementsByClassName("nothing-to-find-item-pc")[0].remove();
+				}
+
 				let i = 0;
 				let numPr = 0;
 				for (let c = 0; c < Orders.length; c++)
@@ -154,6 +160,23 @@ async function GenerateInfo(Orders, value, click, orderNum)
 					method: 'GET'
 				});
 				const Prod = await ProductsData.json();
+
+				if(Prod.length == 0)
+				{
+					let twoBlockItem = document.getElementsByClassName("two-blocks-items-1")[0];
+					let twoBlockItem2 = document.getElementsByClassName("two-blocks-items-2")[0];
+					let noInfoItem = document.createElement("div");
+					noInfoItem.innerHTML = "Ничего не найдено";
+					noInfoItem.classList.add("nothing-to-find-item-pc");
+					noInfoItem.style.textAlign = "center";
+					let noInfoItem2 = document.createElement("div");
+					noInfoItem2.innerHTML = "Ничего не найдено";
+					noInfoItem2.classList.add("nothing-to-find-item-pc");
+					noInfoItem2.style.textAlign = "center";
+					twoBlockItem.appendChild(noInfoItem);
+					twoBlockItem2.appendChild(noInfoItem2);
+				}
+
 				let totalPrice = 0;
 				for(let l = 0; l < Prod.length; l++)
 				{
@@ -163,30 +186,30 @@ async function GenerateInfo(Orders, value, click, orderNum)
 				document.getElementsByClassName("ordered-shipped")[0].innerHTML = 
 				"Customer: " + Orders[i].summary.customer + "<br>" + 
 				"Ordered: " + Orders[i].summary.createdAt + "<br>" + 
-				"Shipped: " + Orders[i].summary.shippedAt;
+				"Shipped: " + Orders[i].summary.shippedAt;				
 
 				//'shipTo' generation(for PC - [0], and phones - [1])----------
 				document.getElementsByClassName("name")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.name + "'/>";
-				document.getElementsByClassName("street")[0].innerHTML = "<input class='input-info input-ship' maxlength='30' readonly value='" + Orders[i].shipTo.address + "'/>";
+				document.getElementsByClassName("street")[0].innerHTML = "<input id='cust-address' class='input-info input-ship' maxlength='30' readonly value='" + Orders[i].shipTo.address + "'/>";
 				document.getElementsByClassName("zip-code")[0].innerHTML = "<input class='input-info input-ship' maxlength='10' readonly value='" + Orders[i].shipTo.ZIP + "'/>";
-				document.getElementsByClassName("region")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.region + "'/>";
-				document.getElementsByClassName("country")[0].innerHTML = "<input class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.country + "'/>";
-				document.getElementsByClassName("name")[1].innerHTML = Orders[i].shipTo.name;
-				document.getElementsByClassName("street")[1].innerHTML = Orders[i].shipTo.address;
-				document.getElementsByClassName("zip-code")[1].innerHTML = Orders[i].shipTo.ZIP;
-				document.getElementsByClassName("region")[1].innerHTML = Orders[i].shipTo.region;
-				document.getElementsByClassName("country")[1].innerHTML = Orders[i].shipTo.country;
+				document.getElementsByClassName("region")[0].innerHTML = "<input id='cust-region' class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.region + "'/>";
+				document.getElementsByClassName("country")[0].innerHTML = "<input id='cust-country' class='input-info input-ship' maxlength='15' readonly value='" + Orders[i].shipTo.country + "'/>";
+				document.getElementsByClassName("name")[1].innerHTML = "<input class='input-info input-ship-phone' maxlength='15' readonly value='" + Orders[i].shipTo.name + "'/>";
+				document.getElementsByClassName("street")[1].innerHTML = "<input class='input-info input-ship-phone' maxlength='30' readonly value='" + Orders[i].shipTo.address + "'/>";
+				document.getElementsByClassName("zip-code")[1].innerHTML = "<input class='input-info input-ship-phone' maxlength='10' readonly value='" + Orders[i].shipTo.ZIP + "'/>";
+				document.getElementsByClassName("region")[1].innerHTML = "<input class='input-info input-ship-phone' maxlength='15' readonly value='" + Orders[i].shipTo.region + "'/>";
+				document.getElementsByClassName("country")[1].innerHTML = "<input class='input-info input-ship-phone' maxlength='15' readonly value='" + Orders[i].shipTo.country + "'/>";
 
 				document.getElementsByClassName("first-name")[0].innerHTML = "<input class='input-info input-cust' maxlength='15' readonly value='" + Orders[i].customerInfo.firstName + "'/>";
 				document.getElementsByClassName("last-name")[0].innerHTML = "<input class='input-info input-cust' maxlength='20' readonly value='" + Orders[i].customerInfo.lastName + "'/>";
 				document.getElementsByClassName("address")[0].innerHTML = "<input class='input-info input-cust' maxlength='30' readonly value='" + Orders[i].customerInfo.address + "'/>";
 				document.getElementsByClassName("phone")[0].innerHTML = "<input class='input-info input-cust' maxlength='20' readonly value='" + Orders[i].customerInfo.phone + "'/>";
 				document.getElementsByClassName("email")[0].innerHTML = "<input class='input-info input-cust' maxlength='30' readonly value='" + Orders[i].customerInfo.email + "'/>";
-				document.getElementsByClassName("first-name")[1].innerHTML = Orders[i].customerInfo.firstName;
-				document.getElementsByClassName("last-name")[1].innerHTML = Orders[i].customerInfo.lastName;
-				document.getElementsByClassName("address")[1].innerHTML = Orders[i].customerInfo.address;
-				document.getElementsByClassName("phone")[1].innerHTML = Orders[i].customerInfo.phone;
-				document.getElementsByClassName("email")[1].innerHTML = Orders[i].customerInfo.email;
+				document.getElementsByClassName("first-name")[1].innerHTML = "<input class='input-info input-cust-phone' maxlength='15' readonly value='" + Orders[i].customerInfo.firstName + "'/>";
+				document.getElementsByClassName("last-name")[1].innerHTML = "<input class='input-info input-cust-phone' maxlength='20' readonly value='" + Orders[i].customerInfo.lastName + "'/>";
+				document.getElementsByClassName("address")[1].innerHTML = "<input class='input-info input-cust-phone' maxlength='30' readonly value='" + Orders[i].customerInfo.address + "'/>";
+				document.getElementsByClassName("phone")[1].innerHTML = "<input class='input-info input-cust-phone' maxlength='20' readonly value='" + Orders[i].customerInfo.phone + "'/>";
+				document.getElementsByClassName("email")[1].innerHTML = "<input class='input-info input-cust-phone' maxlength='30' readonly value='" + Orders[i].customerInfo.email + "'/>";
 
 				//items generation(products-1 - PC, products-2 - phones)--------------
 				let arrayProducts = document.getElementsByClassName("products-1");
@@ -291,6 +314,9 @@ async function GenerateInfo(Orders, value, click, orderNum)
 					//phones
 					let item2 = document.createElement("div");
 					item2.classList.add("item-2");
+					let delItem2 = document.createElement("div");
+					delItem2.classList.add("item-description-2");
+					delItem2.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg' onclick='deleteItem(this)'></div>`;
 					let itemDescription1 = document.createElement("div");
 					itemDescription1.classList.add("item-description-2");
 					itemDescription1.innerHTML = "<div><b>" + Prod[d].name + "</b></div>" + 
@@ -306,6 +332,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 					itemDescription4.classList.add("item-description-2");
 					itemDescription4.innerHTML = "<div>Total:</div>" +  "<div><b>" + Prod[d].totalPrice + "</b> " + 
 					Prod[d].currency + "</div>";
+					item2.appendChild(delItem2);
 					item2.appendChild(itemDescription1);
 					item2.appendChild(itemDescription2);
 					item2.appendChild(itemDescription3);
@@ -339,6 +366,13 @@ async function GenerateInfo(Orders, value, click, orderNum)
 
 	async function searchOrders()
 	{
+		document.getElementsByClassName("nothing-to-find-order")[0].classList.add("display-none");
+		for(let k = 0; k < document.getElementsByClassName("order").length; k++)
+		{
+			document.getElementsByClassName("order")[k].classList.add("display-none");
+		}
+		let preloader = document.getElementById("preloader");
+		preloader.style.display = "block";
 		const OrdersData = await fetch("http://localhost:3000/api/Orders", {
 			method: 'GET'
 		});
@@ -385,6 +419,8 @@ async function GenerateInfo(Orders, value, click, orderNum)
 			noOrder[0].classList.add("display-none");		
 		}
 		document.getElementsByClassName("text-up-order")[0].innerHTML = "Orders (" + count + ")";
+
+		preloader.style.display = "none";
 	}
 
 	
@@ -437,7 +473,7 @@ async function GenerateInfo(Orders, value, click, orderNum)
 				itemPrice.innerHTML = "<b>" + Prod[d].price + "</b> " + Prod[d].currency;
 				itemQuantity.innerHTML = Prod[d].quantity;
 				itemTotalPrice.innerHTML = "<b>" + Prod[d].totalPrice + "</b> " + Prod[d].currency;
-				delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg'></div>`;
+				delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg' onclick='deleteItem(this)'></div>`;
 				items.appendChild(headItem);
 				items.appendChild(itemPrice);
 				items.appendChild(itemQuantity);
@@ -1163,6 +1199,134 @@ async function CustDisplay()
 document.getElementsByClassName("display-ship")[0].addEventListener("click", ShipDisplay);
 document.getElementsByClassName("display-cust")[0].addEventListener("click", CustDisplay);
 
+function ShipEditPhone()
+{
+	let edit = document.getElementsByClassName("edit-ship-phone");
+	edit[0].classList.add("display-none");
+	let display = document.getElementsByClassName("display-ship-phone");
+	display[0].classList.remove("display-none");
+	let info = document.getElementsByClassName("input-ship-phone");
+	for(let i = 0; i < info.length; i++)
+	{
+		info[i].classList.remove("input-info");
+		info[i].removeAttribute("readonly");
+		info[i].classList.add("input-border");
+	}
+}
+function CustEditPhone()
+{
+	let edit = document.getElementsByClassName("edit-cust-phone");
+	edit[0].classList.add("display-none");
+	let display = document.getElementsByClassName("display-cust-phone");
+	display[0].classList.remove("display-none");
+	let info = document.getElementsByClassName("input-cust-phone");
+	for(let i = 0; i < info.length; i++)
+	{
+		info[i].classList.remove("input-info");
+		info[i].removeAttribute("readonly");
+		info[i].classList.add("input-border");
+	}
+}
+document.getElementsByClassName("edit-ship-phone")[0].addEventListener("click", ShipEditPhone);
+document.getElementsByClassName("edit-cust-phone")[0].addEventListener("click", CustEditPhone);
+
+async function ShipDisplayPhone()
+{
+	let info = document.getElementsByClassName("input-ship-phone");
+	if(!isNaN(Number(info[2].value)))
+	{
+	let edit = document.getElementsByClassName("edit-ship-phone");
+	edit[0].classList.remove("display-none");
+	let display = document.getElementsByClassName("display-ship-phone");
+	display[0].classList.add("display-none");
+	for(let i = 0; i < info.length; i++)
+	{
+		info[i].classList.add("input-info");
+		info[i].setAttribute("readonly", "");
+		info[i].classList.remove("input-border");
+	}
+	let orders = document.getElementsByClassName("order");
+	let orderNum = document.getElementsByClassName("order-num");
+	let i = 0;
+	for (let c = 0; c < orders.length; c++)
+	{
+		if (orders[c].className.includes("back-gr-clr-border"))
+		{
+			i = orderNum[c].innerText.substr(6);
+			break;
+		}
+	}
+	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+		method: 'GET'
+	});
+	const DisplayOrder = await OrderData.json();
+	DisplayOrder.summary.customer = info[0].value;
+	DisplayOrder.customerInfo.firstName = info[0].value;
+	DisplayOrder.customerInfo.address = info[1].value;
+	DisplayOrder.shipTo.name = info[0].value;
+	DisplayOrder.shipTo.address = info[1].value;
+	DisplayOrder.shipTo.ZIP = info[2].value;
+	DisplayOrder.shipTo.region = info[3].value;
+	DisplayOrder.shipTo.country = info[4].value;
+	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+		method: 'PUT',
+		headers: {
+      		"Content-type": "application/json; charset=UTF-8"  
+    	},
+    	body: JSON.stringify(DisplayOrder)
+	});
+	window.location.reload();
+	}
+	else alert("Некорректный ZIP");
+}
+async function CustDisplayPhone()
+{
+	let edit = document.getElementsByClassName("edit-cust-phone");
+	edit[0].classList.remove("display-none");
+	let display = document.getElementsByClassName("display-cust-phone");
+	display[0].classList.add("display-none");
+	let info = document.getElementsByClassName("input-cust-phone");
+	for(let i = 0; i < info.length; i++)
+	{
+		info[i].classList.add("input-info");
+		info[i].setAttribute("readonly", "");
+		info[i].classList.remove("input-border");
+	}
+	let orders = document.getElementsByClassName("order");
+	let orderNum = document.getElementsByClassName("order-num");
+	let i = 0;
+	for (let c = 0; c < orders.length; c++)
+	{
+		if (orders[c].className.includes("back-gr-clr-border"))
+		{
+			i = orderNum[c].innerText.substr(6);
+			break;
+		}
+	}
+	const OrderData = await fetch(`http://localhost:3000/api/Orders/${i}`, {
+		method: 'GET'
+	});
+	const DisplayOrder = await OrderData.json();
+	DisplayOrder.summary.customer = info[0].value;
+	DisplayOrder.shipTo.name = info[0].value;
+	DisplayOrder.shipTo.address = info[2].value;
+	DisplayOrder.customerInfo.firstName = info[0].value;
+	DisplayOrder.customerInfo.lastName = info[1].value;
+	DisplayOrder.customerInfo.address = info[2].value;
+	DisplayOrder.customerInfo.phone = info[3].value;
+	DisplayOrder.customerInfo.email = info[4].value;
+	await fetch(`http://localhost:3000/api/Orders/${i}`, {
+		method: 'PUT',
+		headers: {
+      		"Content-type": "application/json; charset=UTF-8"  
+    	},
+    	body: JSON.stringify(DisplayOrder)
+	});
+	window.location.reload();
+}
+document.getElementsByClassName("display-ship-phone")[0].addEventListener("click", ShipDisplayPhone);
+document.getElementsByClassName("display-cust-phone")[0].addEventListener("click", CustDisplayPhone);
+
 //----popups-----
 function ChooseNew()
 {
@@ -1305,6 +1469,7 @@ async function DeleteOrder()
   		.catch(err => alert(err));
   		window.location.reload();
 	}
+	location.search = "";
 }
 document.getElementsByClassName("svg-delete-order")[0].addEventListener("click", DeleteOrder);
 
@@ -1356,6 +1521,7 @@ async function ItemPopupOpen()
 	});
 }
 document.getElementsByClassName("svg-add-item")[0].addEventListener("click", ItemPopupOpen);
+document.getElementsByClassName("svg-add-item")[1].addEventListener("click", ItemPopupOpen);
 
 var itemRadio;
 function checkItem(id)
@@ -1386,7 +1552,7 @@ async function ItemPopupAdd()
 				"Content-type": "application/json; charset=UTF-8"  
 			},  
    			body: JSON.stringify({
-				"idProduct": itemRadio.value,
+				"idProduct": Number(itemRadio.value),
 				"quantity": Number(input.value)
 			})
 		})
@@ -1431,10 +1597,16 @@ document.getElementsByClassName("cancel-item-button")[0].addEventListener("click
 
 async function UpdateOrders()
 {
+	let preloader = document.getElementById("preloader");
+	preloader.style.display = "block";
 	let ord = document.getElementsByClassName("orders");
 	while (ord[0].firstChild) {
   		ord[0].removeChild(ord[0].firstChild);
 	}
+	let preload = document.createElement("div");
+	preload.id = "preloader";
+	preload.innerHTML = '<div id="floatingBarsG"><div class="blockG" id="rotateG_01"></div><div class="blockG" id="rotateG_02"></div><div class="blockG" id="rotateG_03"></div><div class="blockG" id="rotateG_04"></div><div class="blockG" id="rotateG_05"></div><div class="blockG" id="rotateG_06"></div><div class="blockG" id="rotateG_07"></div><div class="blockG" id="rotateG_08"></div></div>';
+	ord[0].appendChild(preload);
 	const OrdersData = await fetch("http://localhost:3000/api/Orders", {
 		method: 'GET'
 	});
@@ -1478,6 +1650,8 @@ async function UpdateOrders()
 		order1.style.textAlign = "center";
 		orders1[0].appendChild(order1);
 	}
+
+	preload.style.display = "none";
 }
 document.getElementsByClassName("svg-update")[0].addEventListener("click", UpdateOrders);
 
@@ -1523,7 +1697,7 @@ async function UpdateItemsPC()
 			itemPrice.innerHTML = "<b>" + Prod[d].price + "</b> " + Prod[d].currency;
 			itemQuantity.innerHTML = Prod[d].quantity;
 			itemTotalPrice.innerHTML = "<b>" + Prod[d].totalPrice + "</b> " + Prod[d].currency;
-			delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg'></div>`;
+			delItem.innerHTML = `<div style='align-items: center'><img title='удалить продукт' class='svg-delete-item item-delete-${Prod[d].id}' src='svg/delete-item.svg' onclick='deleteItem(this)'></div>`;
 			items.appendChild(headItem);
 			items.appendChild(itemPrice);
 			items.appendChild(itemQuantity);
@@ -1626,3 +1800,32 @@ async function UpdateItemsPhone()
 
 }
 document.getElementsByClassName("svg-update-2")[0].addEventListener("click", UpdateItemsPhone);
+
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('mapNEW'), {
+		zoom: 10
+    });
+    var geocoder = new google.maps.Geocoder();
+
+    document.getElementsByClassName("svg-map")[0].addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+    });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+
+	var address = `${document.getElementById("cust-region").value}, ${document.getElementById("cust-address").value}`;
+	geocoder.geocode({'address': address}, function(results, status) {
+		if (status === 'OK') {
+			resultsMap.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+				map: resultsMap,
+				position: results[0].geometry.location
+			});
+		} 
+		else 
+		{
+			alert('Geocode was not successful for the following reason: ' + status);
+		}
+	});
+}
