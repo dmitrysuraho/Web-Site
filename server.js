@@ -1,5 +1,14 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize("Orders", "aaa", "11111", {host: "DESKTOP-VFDQI77", dialect: "mssql"});
+const sequelize = new Sequelize('Orders', 'aaa', 'f,d2001l5', {
+     host: 'dsuraho.database.windows.net',
+     dialect: 'mssql',
+  	dialectOptions: {
+    	options: {
+        	encrypt: true
+      	}
+  	}
+});
+
 const {Customers, Orders, Products, OrdersProducts} = require("./models").ORM(sequelize);
 const express = require("express");
 const app = express();
@@ -315,34 +324,34 @@ app.post("/api/Orders/:x/products", (req, res) => {
 		.then(() => {
 			var flag = false;
 			var newQuantity = 0;
-			OrdersProducts.findAll()
-			.then(result => {
-				result.forEach(el => {
-					if(product.idProduct === el.dataValues.idProduct && Number(req.params.x) === el.dataValues.idOrder)
-					{
-						flag = true;
-						newQuantity = el.dataValues.quantity + product.quantity;
-					}
-				});
-				if(flag)
-				{
-					OrdersProducts.update(
-						{ quantity: newQuantity },
-						{ where: {idOrder: Number(req.params.x), idProduct: product.idProduct}} 
-					)
-					.catch(err => {console.log(err)});
-				}
-				else
-				{
+			// OrdersProducts.findAll()
+			// .then(result => {
+			// 	result.forEach(el => {
+			// 		if(product.idProduct === el.dataValues.idProduct && Number(req.params.x) === el.dataValues.idOrder)
+			// 		{
+			// 			flag = true;
+			// 			newQuantity = el.dataValues.quantity + product.quantity;
+			// 		}
+			// 	});
+			// 	if(flag)
+			// 	{
+			// 		OrdersProducts.update(
+			// 			{ quantity: newQuantity },
+			// 			{ where: {idOrder: Number(req.params.x), idProduct: product.idProduct}} 
+			// 		)
+			// 		.catch(err => {console.log(err)});
+			// 	}
+			// 	else
+			// 	{
 					OrdersProducts.create({
 						idOrder: Number(req.params.x),
 						idProduct: product.idProduct,
 						quantity: product.quantity
 					})
 					.catch(err => {console.log(err)});
-				}
-			})
-			.catch(err => {console.log(err)});
+				// }
+			// })
+			// .catch(err => {console.log(err)});
 			res.send();
 		})
 		.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
