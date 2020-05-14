@@ -229,9 +229,10 @@ app.delete("/api/Orders/:x", (req, res, next) => {
 	.then(() => {console.log("Соединение с базой данных установлено")})
 	.then(() => {
 		OrdersProducts.destroy({where: {idOrder:Number(req.params.x)}});
+		next();
 	})
 	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
-	next();
+	
 });
 
 app.delete("/api/Orders/:x", (req, res) => {
@@ -239,9 +240,9 @@ app.delete("/api/Orders/:x", (req, res) => {
 	.then(() => {console.log("Соединение с базой данных установлено")})
 	.then(() => {
 		Orders.destroy({where: {idOrder: Number(req.params.x)}});
-		res.send();
 	})
 	.catch(err => {console.log("Ошибка при соединении с базой данных: ", err.message)});
+	res.send();
 });
 
 app.get("/api/Customers", (req, res) => {
