@@ -411,7 +411,7 @@ app.delete("/api/Orders/:x/products/:y", (req, res) => {
 
 app.use(express.static(__dirname));
 
-app.get('/Orders', (req, res) => {
+app.get('/', (req, res) => {
 	if(req.query.id)
 	{
 		sequelize.authenticate()
